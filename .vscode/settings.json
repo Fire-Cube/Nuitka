@@ -165,5 +165,11 @@
         "zstd"
     ],
     "esbonio.server.enabled": true,
-    "esbonio.sphinx.confDir": ""
+    "esbonio.sphinx.confDir": "",
+    "yaml.schemas": {
+        ".vscode/yaml_schemas/implicit-imports-schema.json": "implicit-imports.yml",
+        ".vscode/yaml_schemas/dll-files-schema.json": "dll-files.yml",
+        ".vscode/yaml_schemas/anti-bloat-schema.json": "anti-bloat.yml",
+        ".vscode/yaml_schemas/data-files-schema.json": "data-files.yml"
+    },
 }
