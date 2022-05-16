@@ -27,6 +27,9 @@
       "replacements": {
         "type": "object"
       },
+      "replacements_plain": {
+        "type": "object"
+      },
       "change_function": {
         "type": "object"
       }
