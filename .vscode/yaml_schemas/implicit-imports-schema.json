@@ -1,0 +1,39 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "module-name": {
+        "type": "string"
+      },
+      "depends": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "standalone_macos_bundle_mode": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "true"
+          },
+          {
+            "const": "onefile"
+          }
+        ]
+      },
+      "disable_console": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "macos"
+          },
+          {
+            "const": "recommend"
+          }
+        ]
+      }
+    }
+  }
+}

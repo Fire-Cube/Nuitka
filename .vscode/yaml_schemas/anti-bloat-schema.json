@@ -1,0 +1,35 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "module-name": {
+        "type": "string"
+      },
+      "module_code": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "context": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "control_tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "replacements": {
+        "type": "object"
+      },
+      "change_function": {
+        "type": "object"
+      }
+    }
+  }
+}

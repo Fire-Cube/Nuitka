@@ -1,0 +1,44 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "module-name": {
+        "type": "string"
+      },
+      "dest_path": {
+        "type": "string"
+      },
+      "dirs": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "patterns": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "control_tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "empty_dirs": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "empty_dir_structures": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
