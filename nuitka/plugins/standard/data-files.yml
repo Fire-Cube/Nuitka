@@ -120,6 +120,20 @@
 - dirs:
   - data
   module-name: pygsheets
+- dirs:
+  - lib
+  module-name: accessible_output2
+- dirs:
+  - locale-data
+  module-name: babel
+  patterns:
+  - global.dat
+- module-name: frozendict
+  patterns:
+  - VERSION
+- dirs:
+  - lib
+  module-name: sound_lib
 - control_tags:
   - anti-bloat
   module-name: jaraco.text

@@ -35,8 +35,20 @@
       err_msg=None, verbose=True: True)'''
 - description: remove pytest testing framework
   module-name: sklearn.utils._testing
-  replacements:
-    import pytest: '''raise ImportError'''
+  replacements_plain:
+    _dummy = TestCase("__init__"): ''
+    assert_dict_equal = _dummy.assert_dict_equal: 'def assert_dict_equal(*args, **kwargs):
+      pass'
+    assert_raises = _dummy.assertRaises: 'def assert_raises(*args, **kwargs): pass'
+    assert_raises_regex = _dummy.assert_raises_regex: 'def assert_dict_equal(*args,
+      **kwargs): pass'
+    from unittest import TestCase: ''
+    import pytest: raise ImportError
+    import unittest: ''
+    unittest.case.SkipTest: None
+- description: remove skimage testing framework
+  module-name: skimage._shared.tester
+  module_code: "class PytestTester:\n  def __init__(self, name):\n    pass\n"
 - change_function:
     _init_tests: '''None'''
     test: '''None'''
@@ -91,6 +103,11 @@
     add_docstring(implementation, dispatcher.__doc__): '''''''add_docstring(implementation,
       dispatcher.__doc__ or '''')'''''''
     'public_api.__code__ = ': ''
+- description: remove pydoc usage
+  module-name: numpy.lib.utils
+  replacements_plain:
+    .pydoc.allmethods(object): ()
+    import pydoc: ''
 - description: remove numpy testing framework
   module-name: scipy.stats.morestats
   replacements:
@@ -340,6 +357,19 @@
     _test: '''(lambda: None)'''
   description: remove module ability to run as a binary
   module-name: pickle
+- context:
+  - import textwrap
+  control_tags:
+  - deployment
+  description: enhanced tk-inter in case of missing tcl
+  module-name: tkinter
+  replacements:
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use): "textwrap.indent(\"\
+      \"\"\ntry:\n  self.tk = _tkinter.create(screenName, baseName, className, interactive,\
+      \ wantobjects, useTk, sync, use)\nexcept _tkinter.TclError as e:\n  if \"usable\
+      \ init.tcl\" not in str(e):\n    raise\\n\\\n  sys.exit(\"Nuitka: Need to use\
+      \ '--enable-plugin=tk-inter' option during compilation for tk-inter to work!\"\
+      )\n\"\"\", \"        \")\n"
 - change_function:
     _test: '''(lambda: None)'''
   description: remove module ability to run as a binary
@@ -355,7 +385,9 @@
     from pandas.util._tester import test: ''
     import pandas.testing: ''
 - change_function:
+    ensure_clean: '''(lambda: None)'''
     external_error_raised: '''(lambda: None)'''
+    network: '''(lambda: None)'''
     round_trip_localpath: '''(lambda: None)'''
     round_trip_pathlib: '''(lambda: None)'''
   description: remove pytest testing framework
@@ -478,3 +510,58 @@
   module-name: pkg_resources
   replacements:
     import plistlib: '''if sys.platform == "darwin": import plistlib'''
+- change_function:
+    _skip_under_py2: '''(lambda test_method: None)'''
+    _skip_under_py3k: '''(lambda test_method: None)'''
+  control_tags:
+  - allow_unittest
+  description: remove unittest reference
+  module-name: zope.interface._compat
+- description: avoid useless duplication of traceback module
+  module-name: eliot._traceback
+  replacements:
+    load_module(str("_traceback_no_io"), traceback): '''__import__("traceback")'''
+- change_function:
+    _test: '''(lambda: None)'''
+  description: remove doctest usage
+  module-name: pytz
+- change_function:
+    doctests: '''(lambda: None)'''
+  description: remove doctest usage
+  module-name: tornado.util
+- change_function:
+    doctests: '''(lambda: None)'''
+  description: remove doctest usage
+  module-name: tornado.iostream
+- change_function:
+    doctests: '''(lambda: None)'''
+  description: remove doctest usage
+  module-name: tornado.httputil
+- context:
+  - import textwrap
+  - import pkgutil
+  - from nuitka.utils.Importing import getSharedLibrarySuffix
+  control_tags:
+  - standalone_mode_only
+  description: workaround for colliding native module import
+  module-name: cv2
+  replacements:
+    load_first_config(['config.py'], True): textwrap.indent(pkgutil.get_data('cv2',
+      'config.py').decode('utf8'), '    ') + textwrap.indent(pkgutil.get_data('cv2',
+      'config-3.py').decode('utf8'), '    ')
+    native_module = importlib.import_module("cv2.cv2"): '"import imp; native_module
+      = imp.load_dynamic(\"cv2\", os.path.join(os.path.dirname(__file__), \"cv2%s\"))"
+      % getSharedLibrarySuffix(False)'
+  replacements_plain:
+    ? 'load_first_config([
+
+      '
+    : 'if False: (['
+- context:
+  - import orderedmultidict.__version__
+  description: remove manual version file import
+  module-name: orderedmultidict
+  replacements:
+    exec(f.read(), meta): '''__version__ = %r'' % orderedmultidict.__version__.__version__'
+  replacements_plain:
+    with open(pjoin(dirname(__file__), '__version__.py')) as f: if True

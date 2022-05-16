@@ -50,6 +50,7 @@
   module-name: importlib.metadata
 - depends:
   - http.client
+  - http.cookiejar
   module-name: urllib.request
 - depends:
   - asyncio
@@ -57,6 +58,12 @@
 - depends:
   - dbm.dumb
   module-name: shelve
+- depends:
+  - http.server
+  module-name: wsgiref.simple_server
+- depends:
+  - py_compile
+  module-name: zipfile
 - depends:
   - argparse
   module-name: shiboken6
@@ -68,6 +75,12 @@
   standalone_macos_bundle_mode: onefile
 - disable_console: recommend
   module-name: PySide6
+- disable_console: recommend
+  module-name: Tkinter
+  standalone_macos_bundle_mode: onefile
+- disable_console: recommend
+  module-name: tkinter
+  standalone_macos_bundle_mode: onefile
 - depends:
   - .IN.A
   - .CH.A
@@ -78,3 +91,40 @@
 - depends:
   - _cffi_backend
   module-name: persistent.ring
+- depends:
+  - typing_extensions
+  module-name: pydantic.typing
+- depends:
+  - .app_helpers
+  - .responders
+  - .routing
+  module-name: falcon.app
+- depends:
+  - .request_helpers
+  - .forwarded
+  - .media
+  module-name: falcon.request
+- depends:
+  - falcon.vendor.mimeparse
+  module-name: falcon.media.handlers
+- depends:
+  - .response_helpers
+  module-name: falcon.response
+- depends:
+  - websockets.legacy.server
+  module-name: uvicorn.config
+- depends:
+  - sklearn.utils._typedefs
+  module-name: sklearn.metrics._dist_metrics
+- depends:
+  - sklearn.neighbors._typedefs
+  module-name: sklearn.neighbors._dist_metrics
+- depends:
+  - sklearn.neighbors._partition_nodes
+  module-name: sklearn.neighbors._ball_tree
+- depends:
+  - sklearn.utils._weight_vector
+  module-name: sklearn.linear_model._sgd_fast
+- depends:
+  - sklearn.neighbors._quad_tree
+  module-name: sklearn.tree._tree

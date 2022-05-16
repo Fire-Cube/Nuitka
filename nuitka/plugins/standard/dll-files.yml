@@ -18,3 +18,17 @@
     patterns:
     - _audio_microfrontend_op
   module-name: tensorflow.lite.experimental.microfrontend.python.ops.audio_microfrontend_op
+- dlls:
+  - dest_path: sklearn/.libs
+    dir: .libs
+    include_from_filenames: ''
+    patterns:
+    - ''
+  module-name: sklearn._distributor_init
+- dlls:
+  - dest_path: .
+    dir: .
+    include_from_filenames: ''
+    patterns:
+    - Python.Runtime
+  module-name: clr
