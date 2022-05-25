@@ -1,0 +1,1075 @@
+<node kind="StatementsSequence" line="1">
+  <role name="statements" type="list">
+    <node kind="StatementAssignmentVariable" line="1" variable_name="__doc__" is_temp="False" var_type="object" owner="py_compile">
+      <role name="source">
+        <node kind="ExpressionConstantStrRef" line="1" constant="'Routine to &quot;compile&quot; a .py file to a .pyc file.\n\nThis module has intimate knowledge of the format of .pyc files.\n'" user_provided="True" />
+      </role>
+    </node>
+    <node kind="StatementAssignmentVariable" line="1" variable_name="__file__" is_temp="False" var_type="object" owner="py_compile">
+      <role name="source">
+        <node kind="ExpressionModuleAttributeFileRef" line="1" variable="&lt;ModuleVariable '__file__' of 'py_compile'&gt;" />
+      </role>
+    </node>
+    <node kind="StatementsFrameModule" line="1" co_name="&lt;module py_compile&gt;" co_kind="Module" co_varnames="" co_freevars="" co_argcount="0" co_posonlyargcount="0" co_kwonlyargcount="0" co_has_starlist="False" co_has_stardict="False" co_filename="py_compile.py" co_lineno="1" co_new_locals="False" co_is_optimized="False" code_flags="">
+      <role name="statements" type="list">
+        <node kind="StatementAssignmentAttribute" line="1" attribute_name="origin">
+          <role name="source">
+            <node kind="ExpressionModuleAttributeFileRef" line="1" variable="&lt;ModuleVariable '__file__' of 'py_compile'&gt;" />
+          </role>
+          <role name="expression">
+            <node kind="ExpressionModuleAttributeSpecRef" line="1" variable="&lt;ModuleVariable '__spec__' of 'py_compile'&gt;" />
+          </role>
+        </node>
+        <node kind="StatementAssignmentAttribute" line="1" attribute_name="has_location">
+          <role name="source">
+            <node kind="ExpressionConstantTrueRef" line="1" />
+          </role>
+          <role name="expression">
+            <node kind="ExpressionModuleAttributeSpecRef" line="1" variable="&lt;ModuleVariable '__spec__' of 'py_compile'&gt;" />
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="1" variable_name="__cached__" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionConstantNoneRef" line="1" />
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="6" variable_name="enum" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionBuiltinImport" line="6">
+              <role name="name">
+                <node kind="ExpressionConstantStrRef" line="6" constant="'enum'" user_provided="True" />
+              </role>
+              <role name="globals_arg">
+                <node kind="ExpressionBuiltinGlobals" line="6" />
+              </role>
+              <role name="locals_arg">
+                <node kind="ExpressionConstantNoneRef" line="6" />
+              </role>
+              <role name="fromlist">
+                <node kind="ExpressionConstantNoneRef" line="6" />
+              </role>
+              <role name="level">
+                <node kind="ExpressionConstantIntRef" line="6" constant="0" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="7" variable_name="importlib" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionBuiltinImport" line="7">
+              <role name="name">
+                <node kind="ExpressionConstantStrRef" line="7" constant="'importlib._bootstrap_external'" user_provided="True" />
+              </role>
+              <role name="globals_arg">
+                <node kind="ExpressionBuiltinGlobals" line="7" />
+              </role>
+              <role name="locals_arg">
+                <node kind="ExpressionConstantNoneRef" line="7" />
+              </role>
+              <role name="fromlist">
+                <node kind="ExpressionConstantNoneRef" line="7" />
+              </role>
+              <role name="level">
+                <node kind="ExpressionConstantIntRef" line="7" constant="0" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="8" variable_name="importlib" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionBuiltinImport" line="8">
+              <role name="name">
+                <node kind="ExpressionConstantStrRef" line="8" constant="'importlib.machinery'" user_provided="True" />
+              </role>
+              <role name="globals_arg">
+                <node kind="ExpressionBuiltinGlobals" line="8" />
+              </role>
+              <role name="locals_arg">
+                <node kind="ExpressionConstantNoneRef" line="8" />
+              </role>
+              <role name="fromlist">
+                <node kind="ExpressionConstantNoneRef" line="8" />
+              </role>
+              <role name="level">
+                <node kind="ExpressionConstantIntRef" line="8" constant="0" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="9" variable_name="importlib" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionBuiltinImport" line="9">
+              <role name="name">
+                <node kind="ExpressionConstantStrRef" line="9" constant="'importlib.util'" user_provided="True" />
+              </role>
+              <role name="globals_arg">
+                <node kind="ExpressionBuiltinGlobals" line="9" />
+              </role>
+              <role name="locals_arg">
+                <node kind="ExpressionConstantNoneRef" line="9" />
+              </role>
+              <role name="fromlist">
+                <node kind="ExpressionConstantNoneRef" line="9" />
+              </role>
+              <role name="level">
+                <node kind="ExpressionConstantIntRef" line="9" constant="0" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="10" variable_name="os" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionImportModuleHard" line="10" module_name="os" value_name="os" />
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="11" variable_name="os" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionBuiltinImport" line="11">
+              <role name="name">
+                <node kind="ExpressionConstantStrRef" line="11" constant="'os.path'" user_provided="True" />
+              </role>
+              <role name="globals_arg">
+                <node kind="ExpressionBuiltinGlobals" line="11" />
+              </role>
+              <role name="locals_arg">
+                <node kind="ExpressionConstantNoneRef" line="11" />
+              </role>
+              <role name="fromlist">
+                <node kind="ExpressionConstantNoneRef" line="11" />
+              </role>
+              <role name="level">
+                <node kind="ExpressionConstantIntRef" line="11" constant="0" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="12" variable_name="sys" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionImportModuleHard" line="12" module_name="sys" value_name="sys" />
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="13" variable_name="traceback" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionBuiltinImport" line="13">
+              <role name="name">
+                <node kind="ExpressionConstantStrRef" line="13" constant="'traceback'" user_provided="True" />
+              </role>
+              <role name="globals_arg">
+                <node kind="ExpressionBuiltinGlobals" line="13" />
+              </role>
+              <role name="locals_arg">
+                <node kind="ExpressionConstantNoneRef" line="13" />
+              </role>
+              <role name="fromlist">
+                <node kind="ExpressionConstantNoneRef" line="13" />
+              </role>
+              <role name="level">
+                <node kind="ExpressionConstantIntRef" line="13" constant="0" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="15" variable_name="__all__" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionConstantListRef" line="15" constant="['compile', 'main', 'PyCompileError', 'PycInvalidationMode']" user_provided="True" />
+          </role>
+        </node>
+        <node kind="StatementTry" line="18" aborting="False">
+          <role name="tried">
+            <node kind="StatementsSequence" line="18">
+              <role name="statements" type="list">
+                <node kind="StatementAssignmentVariable" line="18" variable_name="class_creation_1__bases_orig" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionMakeTuple" line="18">
+                      <role name="elements" type="list">
+                        <node kind="ExpressionVariableRef" line="18" variable_name="Exception" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="18" variable_name="class_creation_1__bases" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionFunctionCall" line="18">
+                      <role name="function">
+                        <node kind="ExpressionFunctionCreation" line="18">
+                          <role name="defaults" type="list" />
+                          <role name="kw_defaults" type="none" />
+                          <role name="annotations" type="none" />
+                          <role name="function_ref">
+                            <node kind="ExpressionFunctionRef" line="18" code_name="__main__$$$function__1__mro_entries_conversion" />
+                          </role>
+                        </node>
+                      </role>
+                      <role name="values" type="list">
+                        <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases_orig" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="18" variable_name="class_creation_1__class_decl_dict" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionConstantDictEmptyRef" line="18" user_provided="True" />
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="18" variable_name="class_creation_1__metaclass" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionSelectMetaclass" line="18">
+                      <role name="metaclass">
+                        <node kind="ExpressionConditional" line="18">
+                          <role name="condition">
+                            <node kind="ExpressionDictOperationIn" line="18">
+                              <role name="key">
+                                <node kind="ExpressionConstantStrRef" line="18" constant="'metaclass'" user_provided="True" />
+                              </role>
+                              <role name="dict_arg">
+                                <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__class_decl_dict" owner="py_compile" />
+                              </role>
+                            </node>
+                          </role>
+                          <role name="expression_yes">
+                            <node kind="ExpressionDictOperationGet2" line="18">
+                              <role name="dict_arg">
+                                <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__class_decl_dict" owner="py_compile" />
+                              </role>
+                              <role name="key">
+                                <node kind="ExpressionConstantStrRef" line="18" constant="'metaclass'" user_provided="True" />
+                              </role>
+                            </node>
+                          </role>
+                          <role name="expression_no">
+                            <node kind="ExpressionConditional" line="18">
+                              <role name="condition">
+                                <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases" owner="py_compile" />
+                              </role>
+                              <role name="expression_yes">
+                                <node kind="ExpressionBuiltinType1" line="18">
+                                  <role name="value">
+                                    <node kind="ExpressionSubscriptLookup" line="18">
+                                      <role name="expression">
+                                        <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases" owner="py_compile" />
+                                      </role>
+                                      <role name="subscript">
+                                        <node kind="ExpressionConstantIntRef" line="18" constant="0" />
+                                      </role>
+                                    </node>
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="expression_no">
+                                <node kind="ExpressionConstantTypeRef" line="18" constant="&lt;class 'type'&gt;" />
+                              </role>
+                            </node>
+                          </role>
+                        </node>
+                      </role>
+                      <role name="bases">
+                        <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementConditional" line="18">
+                  <role name="condition">
+                    <node kind="ExpressionDictOperationIn" line="18">
+                      <role name="key">
+                        <node kind="ExpressionConstantStrRef" line="18" constant="'metaclass'" user_provided="True" />
+                      </role>
+                      <role name="dict_arg">
+                        <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__class_decl_dict" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                  <role name="yes_branch">
+                    <node kind="StatementsSequence" line="18">
+                      <role name="statements" type="list">
+                        <node kind="StatementDictOperationRemove" line="18">
+                          <role name="dict_arg">
+                            <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__class_decl_dict" owner="py_compile" />
+                          </role>
+                          <role name="key">
+                            <node kind="ExpressionConstantStrRef" line="18" constant="'metaclass'" user_provided="True" />
+                          </role>
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                  <role name="no_branch" type="none" />
+                </node>
+                <node kind="StatementConditional" line="18">
+                  <role name="condition">
+                    <node kind="ExpressionAttributeCheck" line="18" attribute_name="__prepare__">
+                      <role name="expression">
+                        <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__metaclass" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                  <role name="yes_branch">
+                    <node kind="StatementsSequence" line="18">
+                      <role name="statements" type="list">
+                        <node kind="StatementAssignmentVariable" line="18" variable_name="class_creation_1__prepared" is_temp="True" var_type="object" owner="py_compile">
+                          <role name="source">
+                            <node kind="ExpressionCall" line="18">
+                              <role name="called">
+                                <node kind="ExpressionAttributeLookup" line="18" attribute_name="__prepare__">
+                                  <role name="expression">
+                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__metaclass" owner="py_compile" />
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="args">
+                                <node kind="ExpressionMakeTuple" line="18">
+                                  <role name="elements" type="list">
+                                    <node kind="ExpressionConstantStrRef" line="18" constant="'PyCompileError'" user_provided="True" />
+                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases" owner="py_compile" />
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="kwargs">
+                                <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__class_decl_dict" owner="py_compile" />
+                              </role>
+                            </node>
+                          </role>
+                        </node>
+                        <node kind="StatementConditional" line="18">
+                          <role name="condition">
+                            <node kind="ExpressionOperationNot" line="18">
+                              <role name="operand">
+                                <node kind="ExpressionAttributeCheck" line="18" attribute_name="__getitem__">
+                                  <role name="expression">
+                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__prepared" owner="py_compile" />
+                                  </role>
+                                </node>
+                              </role>
+                            </node>
+                          </role>
+                          <role name="yes_branch">
+                            <node kind="StatementsSequence" line="18">
+                              <role name="statements" type="list">
+                                <node kind="StatementRaiseExceptionImplicit" line="18">
+                                  <role name="exception_type">
+                                    <node kind="ExpressionBuiltinExceptionRef" line="18" exception_name="TypeError" />
+                                  </role>
+                                  <role name="exception_value">
+                                    <node kind="ExpressionOperationBinaryMod" line="18">
+                                      <role name="left">
+                                        <node kind="ExpressionConstantStrRef" line="18" constant="'%s.__prepare__() must return a mapping, not %s'" user_provided="True" />
+                                      </role>
+                                      <role name="right">
+                                        <node kind="ExpressionMakeTuple" line="18">
+                                          <role name="elements" type="list">
+                                            <node kind="ExpressionBuiltinGetattr" line="18">
+                                              <role name="expression">
+                                                <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__metaclass" owner="py_compile" />
+                                              </role>
+                                              <role name="name">
+                                                <node kind="ExpressionConstantStrRef" line="18" constant="'__name__'" user_provided="False" />
+                                              </role>
+                                              <role name="default">
+                                                <node kind="ExpressionConstantStrRef" line="18" constant="'&lt;metaclass&gt;'" user_provided="False" />
+                                              </role>
+                                            </node>
+                                            <node kind="ExpressionAttributeLookup" line="18" attribute_name="__name__">
+                                              <role name="expression">
+                                                <node kind="ExpressionBuiltinType1" line="18">
+                                                  <role name="value">
+                                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__prepared" owner="py_compile" />
+                                                  </role>
+                                                </node>
+                                              </role>
+                                            </node>
+                                          </role>
+                                        </node>
+                                      </role>
+                                    </node>
+                                  </role>
+                                  <role name="exception_trace" type="none" />
+                                  <role name="exception_cause" type="none" />
+                                </node>
+                              </role>
+                            </node>
+                          </role>
+                          <role name="no_branch" type="none" />
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                  <role name="no_branch">
+                    <node kind="StatementsSequence" line="18">
+                      <role name="statements" type="list">
+                        <node kind="StatementAssignmentVariable" line="18" variable_name="class_creation_1__prepared" is_temp="True" var_type="object" owner="py_compile">
+                          <role name="source">
+                            <node kind="ExpressionConstantDictEmptyRef" line="18" user_provided="True" />
+                          </role>
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="18" variable_name="PyCompileError" is_temp="False" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionClassBody" line="18" name="PyCompileError" provider="py_compile" flags="" doc="Exception raised when an error occurs while attempting to&#10;    compile the file.&#10;&#10;    To raise this exception, use&#10;&#10;        raise PyCompileError(exc_type,exc_value,file[,msg])&#10;&#10;    where&#10;&#10;        exc_type:   exception type to be used in error message&#10;                    type name can be accesses as class variable&#10;                    'exc_type_name'&#10;&#10;        exc_value:  exception value to be used in error message&#10;                    can be accesses as class variable 'exc_value'&#10;&#10;        file:       name of file being compiled to be used in error message&#10;                    can be accesses as class variable 'file'&#10;&#10;        msg:        string message to be written as error message&#10;                    If no value is given, a default exception message will be&#10;                    given, consistent with 'standard' py_compile output.&#10;                    message (or default) can be accesses as class variable&#10;                    'msg'&#10;&#10;    ">
+                      <role name="body">
+                        <node kind="StatementsSequence" line="18">
+                          <role name="statements" type="list">
+                            <node kind="StatementSetLocals" line="18" locals_scope="locals_py_compile$$$class__1_PyCompileError_18">
+                              <role name="new_locals">
+                                <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__prepared" owner="py_compile" />
+                              </role>
+                            </node>
+                            <node kind="StatementTry" line="18" aborting="True">
+                              <role name="tried">
+                                <node kind="StatementsSequence" line="18">
+                                  <role name="statements" type="list">
+                                    <node kind="StatementTry" line="18" aborting="True">
+                                      <role name="tried">
+                                        <node kind="StatementsSequence" line="18">
+                                          <role name="statements" type="list">
+                                            <node kind="StatementLocalsDictOperationSet" line="18" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" variable_name="__module__">
+                                              <role name="source">
+                                                <node kind="ExpressionConstantStrRef" line="18" constant="'py_compile'" user_provided="False" />
+                                              </role>
+                                            </node>
+                                            <node kind="StatementLocalsDictOperationSet" line="18" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" variable_name="__doc__">
+                                              <role name="source">
+                                                <node kind="ExpressionConstantStrRef" line="18" constant="&quot;Exception raised when an error occurs while attempting to\n    compile the file.\n\n    To raise this exception, use\n\n        raise PyCompileError(exc_type,exc_value,file[,msg])\n\n    where\n\n        exc_type:   exception type to be used in error message\n                    type name can be accesses as class variable\n                    'exc_type_name'\n\n        exc_value:  exception value to be used in error message\n                    can be accesses as class variable 'exc_value'\n\n        file:       name of file being compiled to be used in error message\n                    can be accesses as class variable 'file'\n\n        msg:        string message to be written as error message\n                    If no value is given, a default exception message will be\n                    given, consistent with 'standard' py_compile output.\n                    message (or default) can be accesses as class variable\n                    'msg'\n\n    &quot;" user_provided="True" />
+                                              </role>
+                                            </node>
+                                            <node kind="StatementLocalsDictOperationSet" line="18" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" variable_name="__qualname__">
+                                              <role name="source">
+                                                <node kind="ExpressionConstantStrRef" line="18" constant="'PyCompileError'" user_provided="True" />
+                                              </role>
+                                            </node>
+                                            <node kind="StatementsFrameFunction" line="18" co_name="PyCompileError" co_kind="Class" co_varnames="__class__" co_freevars="" co_argcount="0" co_posonlyargcount="0" co_kwonlyargcount="0" co_has_starlist="False" co_has_stardict="False" co_filename="py_compile.py" co_lineno="18" co_new_locals="False" co_is_optimized="False" code_flags="">
+                                              <role name="statements" type="list">
+                                                <node kind="StatementLocalsDictOperationSet" line="46" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" variable_name="__init__">
+                                                  <role name="source">
+                                                    <node kind="ExpressionFunctionCreation" line="46">
+                                                      <role name="defaults" type="list">
+                                                        <node kind="ExpressionConstantStrEmptyRef" line="46" user_provided="True" />
+                                                      </role>
+                                                      <role name="kw_defaults" type="none" />
+                                                      <role name="annotations" type="none" />
+                                                      <role name="function_ref">
+                                                        <node kind="ExpressionFunctionRef" line="46" code_name="py_compile$$$function__1___init__" />
+                                                      </role>
+                                                    </node>
+                                                  </role>
+                                                </node>
+                                                <node kind="StatementLocalsDictOperationSet" line="62" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" variable_name="__str__">
+                                                  <role name="source">
+                                                    <node kind="ExpressionFunctionCreation" line="62">
+                                                      <role name="defaults" type="list" />
+                                                      <role name="kw_defaults" type="none" />
+                                                      <role name="annotations" type="none" />
+                                                      <role name="function_ref">
+                                                        <node kind="ExpressionFunctionRef" line="62" code_name="py_compile$$$function__2___str__" />
+                                                      </role>
+                                                    </node>
+                                                  </role>
+                                                </node>
+                                              </role>
+                                            </node>
+                                            <node kind="StatementConditional" line="18">
+                                              <role name="condition">
+                                                <node kind="ExpressionComparisonNeq" line="18">
+                                                  <role name="left">
+                                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases" owner="py_compile" />
+                                                  </role>
+                                                  <role name="right">
+                                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases_orig" owner="py_compile" />
+                                                  </role>
+                                                </node>
+                                              </role>
+                                              <role name="yes_branch">
+                                                <node kind="StatementsSequence" line="18">
+                                                  <role name="statements" type="list">
+                                                    <node kind="StatementLocalsDictOperationSet" line="18" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" variable_name="__orig_bases__">
+                                                      <role name="source">
+                                                        <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases_orig" owner="py_compile" />
+                                                      </role>
+                                                    </node>
+                                                  </role>
+                                                </node>
+                                              </role>
+                                              <role name="no_branch" type="none" />
+                                            </node>
+                                            <node kind="StatementAssignmentVariable" line="18" variable_name="__class__" is_temp="False" var_type="object" owner="py_compile$$$class__1_PyCompileError">
+                                              <role name="source">
+                                                <node kind="ExpressionCall" line="18">
+                                                  <role name="called">
+                                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__metaclass" owner="py_compile" />
+                                                  </role>
+                                                  <role name="args">
+                                                    <node kind="ExpressionMakeTuple" line="18">
+                                                      <role name="elements" type="list">
+                                                        <node kind="ExpressionConstantStrRef" line="18" constant="'PyCompileError'" user_provided="True" />
+                                                        <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__bases" owner="py_compile" />
+                                                        <node kind="ExpressionBuiltinLocalsRef" line="18" />
+                                                      </role>
+                                                    </node>
+                                                  </role>
+                                                  <role name="kwargs">
+                                                    <node kind="ExpressionTempVariableRef" line="18" temp_name="class_creation_1__class_decl_dict" owner="py_compile" />
+                                                  </role>
+                                                </node>
+                                              </role>
+                                            </node>
+                                            <node kind="StatementReturn" line="18">
+                                              <role name="expression">
+                                                <node kind="ExpressionVariableRef" line="18" variable_name="__class__" owner="py_compile$$$class__1_PyCompileError" />
+                                              </role>
+                                            </node>
+                                          </role>
+                                        </node>
+                                      </role>
+                                      <role name="except_handler">
+                                        <node kind="StatementsSequence" line="18">
+                                          <role name="statements" type="list">
+                                            <node kind="StatementReleaseLocals" line="18" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" />
+                                            <node kind="StatementReraiseException" line="18" />
+                                          </role>
+                                        </node>
+                                      </role>
+                                      <role name="break_handler" type="none" />
+                                      <role name="continue_handler" type="none" />
+                                      <role name="return_handler">
+                                        <node kind="StatementsSequence" line="18">
+                                          <role name="statements" type="list">
+                                            <node kind="StatementReleaseLocals" line="18" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__1_PyCompileError_18&gt;" />
+                                            <node kind="StatementReturnReturnedValue" line="18" />
+                                          </role>
+                                        </node>
+                                      </role>
+                                    </node>
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="except_handler">
+                                <node kind="StatementsSequence" line="18">
+                                  <role name="statements" type="list">
+                                    <node kind="StatementReraiseException" line="18" />
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="break_handler" type="none" />
+                              <role name="continue_handler" type="none" />
+                              <role name="return_handler">
+                                <node kind="StatementsSequence" line="18">
+                                  <role name="statements" type="list">
+                                    <node kind="StatementReleaseVariable" line="18" variable_name="__class__" owner="py_compile$$$class__1_PyCompileError" />
+                                    <node kind="StatementReturnReturnedValue" line="18" />
+                                  </role>
+                                </node>
+                              </role>
+                            </node>
+                          </role>
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                </node>
+              </role>
+            </node>
+          </role>
+          <role name="except_handler">
+            <node kind="StatementsSequence" line="18">
+              <role name="statements" type="list">
+                <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__bases_orig" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__bases" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__class_decl_dict" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__metaclass" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__prepared" owner="py_compile" />
+                <node kind="StatementReraiseException" line="18" />
+              </role>
+            </node>
+          </role>
+          <role name="break_handler" type="none" />
+          <role name="continue_handler" type="none" />
+          <role name="return_handler" type="none" />
+        </node>
+        <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__bases_orig" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__bases" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__class_decl_dict" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__metaclass" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="18" variable_name="class_creation_1__prepared" owner="py_compile" />
+        <node kind="StatementTry" line="66" aborting="False">
+          <role name="tried">
+            <node kind="StatementsSequence" line="66">
+              <role name="statements" type="list">
+                <node kind="StatementAssignmentVariable" line="66" variable_name="class_creation_2__bases_orig" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionMakeTuple" line="66">
+                      <role name="elements" type="list">
+                        <node kind="ExpressionAttributeLookup" line="66" attribute_name="Enum">
+                          <role name="expression">
+                            <node kind="ExpressionVariableRef" line="66" variable_name="enum" owner="py_compile" />
+                          </role>
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="66" variable_name="class_creation_2__bases" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionFunctionCall" line="66">
+                      <role name="function">
+                        <node kind="ExpressionFunctionCreation" line="66">
+                          <role name="defaults" type="list" />
+                          <role name="kw_defaults" type="none" />
+                          <role name="annotations" type="none" />
+                          <role name="function_ref">
+                            <node kind="ExpressionFunctionRef" line="66" code_name="__main__$$$function__1__mro_entries_conversion" />
+                          </role>
+                        </node>
+                      </role>
+                      <role name="values" type="list">
+                        <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases_orig" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="66" variable_name="class_creation_2__class_decl_dict" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionConstantDictEmptyRef" line="66" user_provided="True" />
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="66" variable_name="class_creation_2__metaclass" is_temp="True" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionSelectMetaclass" line="66">
+                      <role name="metaclass">
+                        <node kind="ExpressionConditional" line="66">
+                          <role name="condition">
+                            <node kind="ExpressionDictOperationIn" line="66">
+                              <role name="key">
+                                <node kind="ExpressionConstantStrRef" line="66" constant="'metaclass'" user_provided="True" />
+                              </role>
+                              <role name="dict_arg">
+                                <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__class_decl_dict" owner="py_compile" />
+                              </role>
+                            </node>
+                          </role>
+                          <role name="expression_yes">
+                            <node kind="ExpressionDictOperationGet2" line="66">
+                              <role name="dict_arg">
+                                <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__class_decl_dict" owner="py_compile" />
+                              </role>
+                              <role name="key">
+                                <node kind="ExpressionConstantStrRef" line="66" constant="'metaclass'" user_provided="True" />
+                              </role>
+                            </node>
+                          </role>
+                          <role name="expression_no">
+                            <node kind="ExpressionConditional" line="66">
+                              <role name="condition">
+                                <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases" owner="py_compile" />
+                              </role>
+                              <role name="expression_yes">
+                                <node kind="ExpressionBuiltinType1" line="66">
+                                  <role name="value">
+                                    <node kind="ExpressionSubscriptLookup" line="66">
+                                      <role name="expression">
+                                        <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases" owner="py_compile" />
+                                      </role>
+                                      <role name="subscript">
+                                        <node kind="ExpressionConstantIntRef" line="66" constant="0" />
+                                      </role>
+                                    </node>
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="expression_no">
+                                <node kind="ExpressionConstantTypeRef" line="66" constant="&lt;class 'type'&gt;" />
+                              </role>
+                            </node>
+                          </role>
+                        </node>
+                      </role>
+                      <role name="bases">
+                        <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementConditional" line="66">
+                  <role name="condition">
+                    <node kind="ExpressionDictOperationIn" line="66">
+                      <role name="key">
+                        <node kind="ExpressionConstantStrRef" line="66" constant="'metaclass'" user_provided="True" />
+                      </role>
+                      <role name="dict_arg">
+                        <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__class_decl_dict" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                  <role name="yes_branch">
+                    <node kind="StatementsSequence" line="66">
+                      <role name="statements" type="list">
+                        <node kind="StatementDictOperationRemove" line="66">
+                          <role name="dict_arg">
+                            <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__class_decl_dict" owner="py_compile" />
+                          </role>
+                          <role name="key">
+                            <node kind="ExpressionConstantStrRef" line="66" constant="'metaclass'" user_provided="True" />
+                          </role>
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                  <role name="no_branch" type="none" />
+                </node>
+                <node kind="StatementConditional" line="66">
+                  <role name="condition">
+                    <node kind="ExpressionAttributeCheck" line="66" attribute_name="__prepare__">
+                      <role name="expression">
+                        <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__metaclass" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                  <role name="yes_branch">
+                    <node kind="StatementsSequence" line="66">
+                      <role name="statements" type="list">
+                        <node kind="StatementAssignmentVariable" line="66" variable_name="class_creation_2__prepared" is_temp="True" var_type="object" owner="py_compile">
+                          <role name="source">
+                            <node kind="ExpressionCall" line="66">
+                              <role name="called">
+                                <node kind="ExpressionAttributeLookup" line="66" attribute_name="__prepare__">
+                                  <role name="expression">
+                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__metaclass" owner="py_compile" />
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="args">
+                                <node kind="ExpressionMakeTuple" line="66">
+                                  <role name="elements" type="list">
+                                    <node kind="ExpressionConstantStrRef" line="66" constant="'PycInvalidationMode'" user_provided="True" />
+                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases" owner="py_compile" />
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="kwargs">
+                                <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__class_decl_dict" owner="py_compile" />
+                              </role>
+                            </node>
+                          </role>
+                        </node>
+                        <node kind="StatementConditional" line="66">
+                          <role name="condition">
+                            <node kind="ExpressionOperationNot" line="66">
+                              <role name="operand">
+                                <node kind="ExpressionAttributeCheck" line="66" attribute_name="__getitem__">
+                                  <role name="expression">
+                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__prepared" owner="py_compile" />
+                                  </role>
+                                </node>
+                              </role>
+                            </node>
+                          </role>
+                          <role name="yes_branch">
+                            <node kind="StatementsSequence" line="66">
+                              <role name="statements" type="list">
+                                <node kind="StatementRaiseExceptionImplicit" line="66">
+                                  <role name="exception_type">
+                                    <node kind="ExpressionBuiltinExceptionRef" line="66" exception_name="TypeError" />
+                                  </role>
+                                  <role name="exception_value">
+                                    <node kind="ExpressionOperationBinaryMod" line="66">
+                                      <role name="left">
+                                        <node kind="ExpressionConstantStrRef" line="66" constant="'%s.__prepare__() must return a mapping, not %s'" user_provided="True" />
+                                      </role>
+                                      <role name="right">
+                                        <node kind="ExpressionMakeTuple" line="66">
+                                          <role name="elements" type="list">
+                                            <node kind="ExpressionBuiltinGetattr" line="66">
+                                              <role name="expression">
+                                                <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__metaclass" owner="py_compile" />
+                                              </role>
+                                              <role name="name">
+                                                <node kind="ExpressionConstantStrRef" line="66" constant="'__name__'" user_provided="False" />
+                                              </role>
+                                              <role name="default">
+                                                <node kind="ExpressionConstantStrRef" line="66" constant="'&lt;metaclass&gt;'" user_provided="False" />
+                                              </role>
+                                            </node>
+                                            <node kind="ExpressionAttributeLookup" line="66" attribute_name="__name__">
+                                              <role name="expression">
+                                                <node kind="ExpressionBuiltinType1" line="66">
+                                                  <role name="value">
+                                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__prepared" owner="py_compile" />
+                                                  </role>
+                                                </node>
+                                              </role>
+                                            </node>
+                                          </role>
+                                        </node>
+                                      </role>
+                                    </node>
+                                  </role>
+                                  <role name="exception_trace" type="none" />
+                                  <role name="exception_cause" type="none" />
+                                </node>
+                              </role>
+                            </node>
+                          </role>
+                          <role name="no_branch" type="none" />
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                  <role name="no_branch">
+                    <node kind="StatementsSequence" line="66">
+                      <role name="statements" type="list">
+                        <node kind="StatementAssignmentVariable" line="66" variable_name="class_creation_2__prepared" is_temp="True" var_type="object" owner="py_compile">
+                          <role name="source">
+                            <node kind="ExpressionConstantDictEmptyRef" line="66" user_provided="True" />
+                          </role>
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                </node>
+                <node kind="StatementAssignmentVariable" line="66" variable_name="PycInvalidationMode" is_temp="False" var_type="object" owner="py_compile">
+                  <role name="source">
+                    <node kind="ExpressionClassBody" line="66" name="PycInvalidationMode" provider="py_compile" flags="">
+                      <role name="body">
+                        <node kind="StatementsSequence" line="66">
+                          <role name="statements" type="list">
+                            <node kind="StatementSetLocals" line="66" locals_scope="locals_py_compile$$$class__2_PycInvalidationMode_66">
+                              <role name="new_locals">
+                                <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__prepared" owner="py_compile" />
+                              </role>
+                            </node>
+                            <node kind="StatementTry" line="66" aborting="True">
+                              <role name="tried">
+                                <node kind="StatementsSequence" line="66">
+                                  <role name="statements" type="list">
+                                    <node kind="StatementTry" line="66" aborting="True">
+                                      <role name="tried">
+                                        <node kind="StatementsSequence" line="66">
+                                          <role name="statements" type="list">
+                                            <node kind="StatementLocalsDictOperationSet" line="66" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" variable_name="__module__">
+                                              <role name="source">
+                                                <node kind="ExpressionConstantStrRef" line="66" constant="'py_compile'" user_provided="False" />
+                                              </role>
+                                            </node>
+                                            <node kind="StatementLocalsDictOperationSet" line="66" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" variable_name="__qualname__">
+                                              <role name="source">
+                                                <node kind="ExpressionConstantStrRef" line="66" constant="'PycInvalidationMode'" user_provided="True" />
+                                              </role>
+                                            </node>
+                                            <node kind="StatementsFrameFunction" line="66" co_name="PycInvalidationMode" co_kind="Class" co_varnames="__class__" co_freevars="" co_argcount="0" co_posonlyargcount="0" co_kwonlyargcount="0" co_has_starlist="False" co_has_stardict="False" co_filename="py_compile.py" co_lineno="66" co_new_locals="False" co_is_optimized="False" code_flags="">
+                                              <role name="statements" type="list">
+                                                <node kind="StatementLocalsDictOperationSet" line="67" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" variable_name="TIMESTAMP">
+                                                  <role name="source">
+                                                    <node kind="ExpressionConstantIntRef" line="67" constant="1" />
+                                                  </role>
+                                                </node>
+                                                <node kind="StatementLocalsDictOperationSet" line="68" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" variable_name="CHECKED_HASH">
+                                                  <role name="source">
+                                                    <node kind="ExpressionConstantIntRef" line="68" constant="2" />
+                                                  </role>
+                                                </node>
+                                                <node kind="StatementLocalsDictOperationSet" line="69" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" variable_name="UNCHECKED_HASH">
+                                                  <role name="source">
+                                                    <node kind="ExpressionConstantIntRef" line="69" constant="3" />
+                                                  </role>
+                                                </node>
+                                              </role>
+                                            </node>
+                                            <node kind="StatementConditional" line="66">
+                                              <role name="condition">
+                                                <node kind="ExpressionComparisonNeq" line="66">
+                                                  <role name="left">
+                                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases" owner="py_compile" />
+                                                  </role>
+                                                  <role name="right">
+                                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases_orig" owner="py_compile" />
+                                                  </role>
+                                                </node>
+                                              </role>
+                                              <role name="yes_branch">
+                                                <node kind="StatementsSequence" line="66">
+                                                  <role name="statements" type="list">
+                                                    <node kind="StatementLocalsDictOperationSet" line="66" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" variable_name="__orig_bases__">
+                                                      <role name="source">
+                                                        <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases_orig" owner="py_compile" />
+                                                      </role>
+                                                    </node>
+                                                  </role>
+                                                </node>
+                                              </role>
+                                              <role name="no_branch" type="none" />
+                                            </node>
+                                            <node kind="StatementAssignmentVariable" line="66" variable_name="__class__" is_temp="False" var_type="object" owner="py_compile$$$class__2_PycInvalidationMode">
+                                              <role name="source">
+                                                <node kind="ExpressionCall" line="66">
+                                                  <role name="called">
+                                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__metaclass" owner="py_compile" />
+                                                  </role>
+                                                  <role name="args">
+                                                    <node kind="ExpressionMakeTuple" line="66">
+                                                      <role name="elements" type="list">
+                                                        <node kind="ExpressionConstantStrRef" line="66" constant="'PycInvalidationMode'" user_provided="True" />
+                                                        <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__bases" owner="py_compile" />
+                                                        <node kind="ExpressionBuiltinLocalsRef" line="66" />
+                                                      </role>
+                                                    </node>
+                                                  </role>
+                                                  <role name="kwargs">
+                                                    <node kind="ExpressionTempVariableRef" line="66" temp_name="class_creation_2__class_decl_dict" owner="py_compile" />
+                                                  </role>
+                                                </node>
+                                              </role>
+                                            </node>
+                                            <node kind="StatementReturn" line="66">
+                                              <role name="expression">
+                                                <node kind="ExpressionVariableRef" line="66" variable_name="__class__" owner="py_compile$$$class__2_PycInvalidationMode" />
+                                              </role>
+                                            </node>
+                                          </role>
+                                        </node>
+                                      </role>
+                                      <role name="except_handler">
+                                        <node kind="StatementsSequence" line="66">
+                                          <role name="statements" type="list">
+                                            <node kind="StatementReleaseLocals" line="66" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" />
+                                            <node kind="StatementReraiseException" line="66" />
+                                          </role>
+                                        </node>
+                                      </role>
+                                      <role name="break_handler" type="none" />
+                                      <role name="continue_handler" type="none" />
+                                      <role name="return_handler">
+                                        <node kind="StatementsSequence" line="66">
+                                          <role name="statements" type="list">
+                                            <node kind="StatementReleaseLocals" line="66" locals_scope="&lt;LocalsMappingHandle of locals_py_compile$$$class__2_PycInvalidationMode_66&gt;" />
+                                            <node kind="StatementReturnReturnedValue" line="66" />
+                                          </role>
+                                        </node>
+                                      </role>
+                                    </node>
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="except_handler">
+                                <node kind="StatementsSequence" line="66">
+                                  <role name="statements" type="list">
+                                    <node kind="StatementReraiseException" line="66" />
+                                  </role>
+                                </node>
+                              </role>
+                              <role name="break_handler" type="none" />
+                              <role name="continue_handler" type="none" />
+                              <role name="return_handler">
+                                <node kind="StatementsSequence" line="66">
+                                  <role name="statements" type="list">
+                                    <node kind="StatementReleaseVariable" line="66" variable_name="__class__" owner="py_compile$$$class__2_PycInvalidationMode" />
+                                    <node kind="StatementReturnReturnedValue" line="66" />
+                                  </role>
+                                </node>
+                              </role>
+                            </node>
+                          </role>
+                        </node>
+                      </role>
+                    </node>
+                  </role>
+                </node>
+              </role>
+            </node>
+          </role>
+          <role name="except_handler">
+            <node kind="StatementsSequence" line="66">
+              <role name="statements" type="list">
+                <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__bases_orig" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__bases" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__class_decl_dict" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__metaclass" owner="py_compile" />
+                <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__prepared" owner="py_compile" />
+                <node kind="StatementReraiseException" line="66" />
+              </role>
+            </node>
+          </role>
+          <role name="break_handler" type="none" />
+          <role name="continue_handler" type="none" />
+          <role name="return_handler" type="none" />
+        </node>
+        <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__bases_orig" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__bases" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__class_decl_dict" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__metaclass" owner="py_compile" />
+        <node kind="StatementReleaseVariable" line="66" variable_name="class_creation_2__prepared" owner="py_compile" />
+        <node kind="StatementAssignmentVariable" line="72" variable_name="_get_default_invalidation_mode" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionFunctionCreation" line="72">
+              <role name="defaults" type="list" />
+              <role name="kw_defaults" type="none" />
+              <role name="annotations" type="none" />
+              <role name="function_ref">
+                <node kind="ExpressionFunctionRef" line="72" code_name="py_compile$$$function__3__get_default_invalidation_mode" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="79" variable_name="compile" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionFunctionCreation" line="79">
+              <role name="defaults" type="list">
+                <node kind="ExpressionConstantNoneRef" line="79" />
+                <node kind="ExpressionConstantNoneRef" line="79" />
+                <node kind="ExpressionConstantFalseRef" line="79" />
+                <node kind="ExpressionConstantIntRef" line="79" constant="-1" />
+                <node kind="ExpressionConstantNoneRef" line="80" />
+                <node kind="ExpressionConstantIntRef" line="80" constant="0" />
+              </role>
+              <role name="kw_defaults" type="none" />
+              <role name="annotations" type="none" />
+              <role name="function_ref">
+                <node kind="ExpressionFunctionRef" line="79" code_name="py_compile$$$function__4_compile" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementAssignmentVariable" line="176" variable_name="main" is_temp="False" var_type="object" owner="py_compile">
+          <role name="source">
+            <node kind="ExpressionFunctionCreation" line="176">
+              <role name="defaults" type="list" />
+              <role name="kw_defaults" type="none" />
+              <role name="annotations" type="none" />
+              <role name="function_ref">
+                <node kind="ExpressionFunctionRef" line="176" code_name="py_compile$$$function__5_main" />
+              </role>
+            </node>
+          </role>
+        </node>
+        <node kind="StatementConditional" line="211">
+          <role name="condition">
+            <node kind="ExpressionComparisonEq" line="211">
+              <role name="left">
+                <node kind="ExpressionVariableRef" line="211" variable_name="__name__" owner="py_compile" />
+              </role>
+              <role name="right">
+                <node kind="ExpressionConstantStrRef" line="211" constant="'__main__'" user_provided="True" />
+              </role>
+            </node>
+          </role>
+          <role name="yes_branch">
+            <node kind="StatementsSequence" line="211">
+              <role name="statements" type="list">
+                <node kind="StatementExpressionOnly" line="212" expression="EXPRESSION_CALL_EMPTY">
+                  <role name="expression">
+                    <node kind="ExpressionCallEmpty" line="212">
+                      <role name="called">
+                        <node kind="ExpressionVariableRef" line="212" variable_name="main" owner="py_compile" />
+                      </role>
+                    </node>
+                  </role>
+                </node>
+              </role>
+            </node>
+          </role>
+          <role name="no_branch" type="none" />
+        </node>
+      </role>
+    </node>
+  </role>
+</node>

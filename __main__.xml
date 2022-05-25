@@ -1,0 +1,49 @@
+<node kind="StatementsSequence" line="1">
+  <role name="statements" type="list">
+    <node kind="StatementAssignmentVariable" line="1" variable_name="__doc__" is_temp="False" var_type="object" owner="__main__">
+      <role name="source">
+        <node kind="ExpressionConstantNoneRef" line="1" />
+      </role>
+    </node>
+    <node kind="StatementAssignmentVariable" line="1" variable_name="__file__" is_temp="False" var_type="object" owner="__main__">
+      <role name="source">
+        <node kind="ExpressionModuleAttributeFileRef" line="1" variable="&lt;ModuleVariable '__file__' of '__main__'&gt;" />
+      </role>
+    </node>
+    <node kind="StatementAssignmentVariable" line="1" variable_name="__cached__" is_temp="False" var_type="object" owner="__main__">
+      <role name="source">
+        <node kind="ExpressionConstantNoneRef" line="1" />
+      </role>
+    </node>
+    <node kind="StatementAssignmentVariable" line="1" variable_name="__annotations__" is_temp="False" var_type="object" owner="__main__">
+      <role name="source">
+        <node kind="ExpressionConstantDictEmptyRef" line="1" user_provided="True" />
+      </role>
+    </node>
+    <node kind="StatementAssignmentVariable" line="1" variable_name="printlost" is_temp="False" var_type="object" owner="__main__">
+      <role name="source">
+        <node kind="ExpressionFunctionCreation" line="1">
+          <role name="defaults" type="list" />
+          <role name="kw_defaults" type="none" />
+          <role name="annotations" type="none" />
+          <role name="function_ref">
+            <node kind="ExpressionFunctionRef" line="1" code_name="__main__$$$function__1_printlost" />
+          </role>
+        </node>
+      </role>
+    </node>
+    <node kind="StatementsFrameModule" line="1" co_name="&lt;module&gt;" co_kind="Module" co_varnames="" co_freevars="" co_argcount="0" co_posonlyargcount="0" co_kwonlyargcount="0" co_has_starlist="False" co_has_stardict="False" co_filename="xml_test.py" co_lineno="1" co_new_locals="False" co_is_optimized="False" code_flags="">
+      <role name="statements" type="list">
+        <node kind="StatementExpressionOnly" line="5" expression="EXPRESSION_CALL_EMPTY">
+          <role name="expression">
+            <node kind="ExpressionCallEmpty" line="5">
+              <role name="called">
+                <node kind="ExpressionVariableRef" line="5" variable_name="printlost" owner="__main__" />
+              </role>
+            </node>
+          </role>
+        </node>
+      </role>
+    </node>
+  </role>
+</node>

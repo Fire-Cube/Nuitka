@@ -256,12 +256,12 @@ def _endProgress():
     last_total = closeProgressBar()
 
 
-def restoreFromXML(text):
+def restoreFromXML(text, filename):
     from nuitka.nodes.NodeBases import fromXML
     from nuitka.TreeXML import fromString
 
     xml = fromString(text)
-
+    xml.attrib["filename"] = filename
     module = fromXML(provider=None, xml=xml)
 
     return module

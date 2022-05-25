@@ -22,15 +22,17 @@ together and cross-module optimizations are the most difficult to tackle.
 """
 
 import os
+import pickle
 
 from nuitka import Options, Variables
+from nuitka.Caching import getCachedOptimizedModuleFromCache, hasCachedOptimizedModule, writeOptimizedModuleToCache
 from nuitka.containers.oset import OrderedSet
 from nuitka.importing.Importing import (
     getModuleNameAndKindFromFilename,
     locateModule,
 )
 from nuitka.importing.Recursion import decideRecursion, recurseTo
-from nuitka.ModuleRegistry import getModuleByName, getOwnerFromCodeName
+from nuitka.ModuleRegistry import addRootModule, getModuleByName, getOwnerFromCodeName
 from nuitka.optimizations.TraceCollections import TraceCollectionModule
 from nuitka.PythonVersions import python_version
 from nuitka.SourceCodeReferences import fromFilename
@@ -531,11 +533,28 @@ class CompiledPythonModule(
         )
 
         module_body = self.subnode_body
-
+        # print(dir(module_body))
+        print(self.variables)
+        print(self.locals_scope)
+        pickle.dumps(self.locals_scope)
+        pickle.dumps(self.variables)
         if module_body is not None:
-            result = module_body.computeStatementsSequence(
-                trace_collection=self.trace_collection
-            )
+            if not hasCachedOptimizedModule(self.module_name, self.getSourceCode()):
+                result = module_body.computeStatementsSequence(
+                    trace_collection=self.trace_collection
+                )
+                # print(result.asXmlText())
+                writeOptimizedModuleToCache(result.asXmlText(), self.getSourceCode(), self.module_name)
+                with open(f"{self.module_name}.xml", "w") as f:
+                    f.write(result.asXmlText())
+
+                print(f"cached {self.module_name}")
+
+            else:
+                from nuitka.optimizations.Optimization import restoreFromXML
+                result = restoreFromXML(getCachedOptimizedModuleFromCache(self.module_name, self.getSourceCode()), self.module_name)
+
+                print(f"loaded {self.module_name}")
 
             if result is not module_body:
                 self.setChild("body", result)

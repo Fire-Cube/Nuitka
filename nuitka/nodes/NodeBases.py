@@ -1142,6 +1142,7 @@ def extractKindAndArgsFromXML(xml, source_ref):
     kind = xml.attrib["kind"]
 
     args = dict(xml.attrib)
+    # print(args)
     del args["kind"]
 
     if source_ref is None:

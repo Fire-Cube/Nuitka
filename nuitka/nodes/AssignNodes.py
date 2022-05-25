@@ -30,7 +30,7 @@ the traces.
 
 """
 
-from nuitka.ModuleRegistry import getOwnerFromCodeName
+from nuitka.ModuleRegistry import addRootModule, getOwnerFromCodeName
 from nuitka.Options import isExperimental
 
 from .NodeBases import StatementBase, StatementChildHavingBase
@@ -177,6 +177,7 @@ class StatementAssignmentVariable(StatementChildHavingBase):
 
     @classmethod
     def fromXML(cls, provider, source_ref, **args):
+        # print("args", args)
         assert cls is StatementAssignmentVariable, cls
 
         owner = getOwnerFromCodeName(args["owner"])
@@ -193,8 +194,7 @@ class StatementAssignmentVariable(StatementChildHavingBase):
         del args["owner"]
 
         version = variable.allocateTargetNumber()
-
-        return cls(variable=variable, version=version, source_ref=source_ref, **args)
+        return cls(variable=variable, version=version, source_ref=source_ref, source=args["source"])
 
     def makeClone(self):
         if self.variable is not None:

@@ -21,7 +21,11 @@ Initially this deals with preserving compiled module state after bytecode demoti
 such that it allows to restore it directly.
 """
 
+import base64
 import os
+import pickle
+from nuitka.TreeXML import fromString
+from nuitka.Version import getNuitkaVersion
 
 from nuitka.importing.Importing import getPackageSearchPath, isPackageDir
 from nuitka.utils.AppDirs import getCacheDir
@@ -38,8 +42,8 @@ def _getCacheDir():
     return module_cache_dir
 
 
-def _getCacheFilename(module_name, extension):
-    return os.path.join(_getCacheDir(), "%s.%s" % (module_name, extension))
+def _getCacheFilename(module_name, extension, additive=""):
+    return os.path.join(_getCacheDir(), "%s%s.%s" % (additive, module_name, extension))
 
 
 def makeCacheName(module_name, source_code):
@@ -59,6 +63,10 @@ def hasCachedImportedModulesNames(module_name, source_code):
 
     return result is not None
 
+def hasCachedOptimizedModule(module_name, source_code):
+    result = getCachedOptimizedModuleFromCache(module_name, source_code)
+
+    return result is not None
 
 # Bump this is format is changed or enhanced implementation might different ones.
 _cache_format_version = 2
@@ -87,6 +95,19 @@ def getCachedImportedModulesNames(module_name, source_code):
         for (used_module_name, line_number) in data["modules_used"]
     ]
 
+def getCachedOptimizedModuleFromCache(module_name, source_code):
+    cache_name = makeCacheName(module_name, source_code)
+    cache_filename = _getCacheFilename(cache_name, "json", additive="optimized_")
+
+    if not os.path.exists(cache_filename):
+        return None
+
+    data = loadJsonFromFilename(cache_filename)
+
+    if not data["Nuitka_version"] == getNuitkaVersion():
+        return None
+
+    return data["optimized_module"]
 
 def writeImportedModulesNamesToCache(module_name, source_code, used_modules):
     cache_name = makeCacheName(module_name, source_code)
@@ -104,6 +125,14 @@ def writeImportedModulesNamesToCache(module_name, source_code, used_modules):
 
     writeJsonToFilename(filename=cache_filename, contents=data)
 
+def writeOptimizedModuleToCache(optimized_module, source_code, module_name):
+    cache_name = makeCacheName(module_name, source_code)
+    cache_filename = _getCacheFilename(cache_name, "json", additive="optimized_")
+    data = {
+        "Nuitka_version": getNuitkaVersion(),
+        "optimized_module": optimized_module
+    }
+    writeJsonToFilename(filename=cache_filename, contents=data)
 
 def getModuleImportableFilesHash(full_name):
     """Calculate hash value of packages importable for a module of this name."""
