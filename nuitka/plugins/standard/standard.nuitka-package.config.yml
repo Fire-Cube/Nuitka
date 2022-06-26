@@ -281,7 +281,7 @@
         "import distutils as _distutils": "'_distutils = None'"
         "import site as _site": "'_site = None'"
   implicit-imports:
-    depends:
+    - depends:
       - ".python.keras"
 
 - module-name: "tensorflow"
@@ -626,7 +626,7 @@
       change_function:
         "main": "'(lambda: None)'"
   implicit-imports:
-    depends:
+    - depends:
       - "py_compile"
 
 - module-name: "zipfile"
@@ -842,7 +842,7 @@
       change_function:
         "_test": "'(lambda: None)'"
   implicit-imports:
-    depends:
+    - depends:
       - "_bootlocale"
 
 - module-name: "locale"
@@ -927,6 +927,9 @@
         "round_trip_localpath": "'(lambda: None)'"
         "round_trip_pathlib": "'(lambda: None)'"
       description: "remove pytest testing framework"
+  options-check:
+    - 
+  
 
 - module-name: "pandas.compat._optional"
   anti-bloat:
@@ -1017,7 +1020,7 @@
 
 - module-name: "pandas._libs.tslibs.fields"
   implicit-imports:
-    depends:
+    - depends:
       - "pandas._config.localization"
 
 - module-name: "sphinx.util.docutils"
@@ -1136,7 +1139,7 @@
         ? "load_first_config([\n"
         : "if False: (["
   implicit-imports:
-    depends:
+    - depends:
       - "cv2.cv2"
 
 - module-name: "orderedmultidict"
@@ -1214,7 +1217,7 @@
 
 - module-name: "lxml"
   implicit-imports:
-    depends:
+    - depends:
       - ".builder"
       - ".etree"
       - ".objectify"
@@ -1223,50 +1226,50 @@
 
 - module-name: "lxml.etree"
   implicit-imports:
-    depends:
+    - depends:
       - "._elementpath"
       - "gzip"
 
 - module-name: "lxml.html"
   implicit-imports:
-    depends:
+    - depends:
       - ".html.clean"
       - ".html.diff"
       - ".etree"
 
 - module-name: "pendulum.locales"
   implicit-imports:
-    depends:
+    - depends:
       - ".*.locale"
 
 - module-name: "phonenumbers.data"
   implicit-imports:
-    depends:
+    - depends:
       - ".region_*"
 
 - module-name: "srsly.msgpack._packer"
   implicit-imports:
-    depends:
+    - depends:
       - "srsly.msgpack.util"
 
 - module-name: "anyio._core._eventloop"
   implicit-imports:
-    depends:
+    - depends:
       - "anyio._backends._asyncio"
 
 - module-name: "asyncpg.protocol.protocol"
   implicit-imports:
-    depends:
+    - depends:
       - "asyncpg.pgproto.pgproto"
 
 - module-name: "asyncpg.pgproto.pgproto"
   implicit-imports:
-    depends:
+    - depends:
       - "asyncpg.pgproto.exceptions"
 
 - module-name: "encodings"
   implicit-imports:
-    depends:
+    - depends:
       - ".idna"
       - ".base64_codec"
       - ".hex_codec"
@@ -1274,45 +1277,45 @@
 
 - module-name: "pathlib"
   implicit-imports:
-    depends:
+    - depends:
       - "ntpath"
       - "posixpath"
 
 - module-name: "importlib.metadata"
   implicit-imports:
-    depends:
+    - depends:
       - "email"
 
 - module-name: "urllib.request"
   implicit-imports:
-    depends:
+    - depends:
       - "http.client"
       - "http.cookiejar"
 
 - module-name: "_asyncio"
   implicit-imports:
-    depends:
+    - depends:
       - "asyncio"
 
 - module-name: "concurrent.futures.process"
   implicit-imports:
-    depends:
+    - depends:
       - "multiprocessing"
       - "multiprocessing.connection"
 
 - module-name: "shelve"
   implicit-imports:
-    depends:
+    - depends:
       - "dbm.dumb"
 
 - module-name: "wsgiref.simple_server"
   implicit-imports:
-    depends:
+    - depends:
       - "http.server"
 
 - module-name: "shiboken6"
   implicit-imports:
-    depends:
+    - depends:
       - "argparse"
 
 - module-name: "wx"
@@ -1336,68 +1339,68 @@
 
 - module-name: "dns.rdtypes"
   implicit-imports:
-    depends:
+    - depends:
       - ".IN.A"
       - ".CH.A"
 
 - module-name: "tensorflow.python.compiler.tensorrt.trt_convert"
   implicit-imports:
-    depends:
+    - depends:
       - "tensorflow.compiler.tf2tensorrt.ops.gen_trt_ops"
       - "tensorflow.compiler.tf2tensorrt._pywrap_py_utils"
 
 - module-name: "persistent.ring"
   implicit-imports:
-    depends:
+    - depends:
       - "_cffi_backend"
 
 - module-name: "pydantic.typing"
   implicit-imports:
-    depends:
+    - depends:
       - "typing_extensions"
 
 - module-name: "falcon.app"
   implicit-imports:
-    depends:
+    - depends:
       - ".app_helpers"
       - ".responders"
       - ".routing"
 
 - module-name: "falcon.request"
   implicit-imports:
-    depends:
+    - depends:
       - ".request_helpers"
       - ".forwarded"
       - ".media"
 
 - module-name: "falcon.media.handlers"
   implicit-imports:
-    depends:
+    - depends:
       - "falcon.vendor.mimeparse"
 
 - module-name: "falcon.response"
   implicit-imports:
-    depends:
+    - depends:
       - ".response_helpers"
 
 - module-name: "uvicorn.config"
   implicit-imports:
-    depends:
+    - depends:
       - "websockets.legacy.server"
 
 - module-name: "sklearn.metrics._dist_metrics"
   implicit-imports:
-    depends:
+    - depends:
       - "sklearn.utils._typedefs"
 
 - module-name: "sklearn.neighbors._dist_metrics"
   implicit-imports:
-    depends:
+    - depends:
       - "sklearn.neighbors._typedefs"
 
 - module-name: "sklearn.neighbors._ball_tree"
   implicit-imports:
-    depends:
+    - depends:
       - "sklearn.neighbors._partition_nodes"
 
 - module-name: "sklearn.linear_model._sgd_fast"
