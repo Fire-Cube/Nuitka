@@ -978,10 +978,10 @@ def main():
 
             setMainEntryPoint(binary_filename)
 
-            dist_dir = OutputDirectories.getStandaloneDirectoryPath()
-
             for module in ModuleRegistry.getDoneModules():
-                addIncludedEntryPoints(Plugins.considerExtraDlls(dist_dir, module))
+                addIncludedEntryPoints(Plugins.considerExtraDlls(module))
+
+            dist_dir = OutputDirectories.getStandaloneDirectoryPath()
 
             copyDllsUsed(
                 source_dir=OutputDirectories.getSourceDirectoryPath(),
@@ -992,7 +992,7 @@ def main():
             Plugins.onStandaloneDistributionFinished(dist_dir)
 
             if Options.isOnefileMode():
-                packDistFolderToOnefile(dist_dir, binary_filename)
+                packDistFolderToOnefile(dist_dir)
 
                 if Options.isRemoveBuildDir():
                     general.info("Removing dist folder %r." % dist_dir)
