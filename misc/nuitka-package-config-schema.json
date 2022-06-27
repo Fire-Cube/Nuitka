@@ -28,10 +28,8 @@
                         }
                     },
                     "control_tags": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "string",
+                        "pattern": "(([a-zA-Z]|[0-9]|_)|and|is|not| )"
                     },
                     "empty_dirs": {
                         "type": "array",
@@ -102,10 +100,9 @@
                             }
                         },
                         "control_tags": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
+                            "type": "string",
+                            "pattern": "(([a-zA-Z]|[0-9]|_)|and|is|not| )"
+
                         },
                         "replacements": {
                             "type": "object"
@@ -184,7 +181,7 @@
                                 },
                                 "control_tags": {
                                     "type": "string",
-                                    "pattern": "(macos_only|win32_only|and|not| )"
+                                    "pattern": "(([a-zA-Z]|[0-9]|_)|and|is|not| )"
                                 },
                                 "description": {
                                     "type": "string"

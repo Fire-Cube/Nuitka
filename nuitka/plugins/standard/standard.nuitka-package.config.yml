@@ -245,8 +245,7 @@
   data-files:
     patterns:
       - "Lorem ipsum.txt"
-    control_tags:
-      - anti-bloat
+    control_tags: anti-bloat
 
 - module-name: "shapely.geos"
   dlls:
@@ -339,8 +338,7 @@
       change_function:
         "get_extension": "un-callable"
         "_build": "un-callable"
-      control_tags:
-        - "allow_cffi_recompiler"
+      control_tags: "allow_cffi_recompiler"
 
 - module-name: "cffi.api"
   anti-bloat:
@@ -350,8 +348,7 @@
         "emit_c_code": "un-callable"
         "compile": "un-callable"
         "distutils_extension": "un-callable"
-      control_tags:
-        - "allow_cffi_recompiler"
+      control_tags: "allow_cffi_recompiler"
 
 - module-name: "sklearn.random_projection"
   anti-bloat:
@@ -396,8 +393,7 @@
     - description: "remove IPython reference"
       change_function:
         "_fix_ipython_backend2gui": "'(lambda cls: None)'"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
 
 - module-name: "matplotlib.pyplot"
   anti-bloat:
@@ -405,16 +401,14 @@
       change_function:
         "install_repl_displayhook": "'(lambda: None)'"
         "uninstall_repl_displayhook": "'(lambda: None)'"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
 
 - module-name: "matplotlib.figure"
   anti-bloat:
     - description: "remove IPython reference"
       change_function:
         "_repr_html_": "un-callable"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
 
 - module-name: "PIL.ImageShow"
   anti-bloat:
@@ -877,8 +871,7 @@
     - description: "enhanced tk-inter in case of missing tcl"
       context:
         - "import textwrap"
-      control_tags:
-        - "deployment"
+      control_tags: "deployment"
       replacements:
         "self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)": |
           textwrap.indent("""
@@ -1070,8 +1063,7 @@
       change_function:
         "load_ipython_extension": "'(lambda ipython: None)'"
         "notebook": "'(lambda: None)'"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
 
 - module-name: "persistent._compat"
   anti-bloat:
@@ -1091,8 +1083,7 @@
       change_function:
         "_skip_under_py2": "'(lambda test_method: None)'"
         "_skip_under_py3k": "'(lambda test_method: None)'"
-      control_tags:
-        - "allow_unittest"
+      control_tags: "allow_unittest"
 
 - module-name: "eliot._traceback"
   anti-bloat:
@@ -1125,8 +1116,7 @@
         - "import textwrap"
         - "import pkgutil"
         - "from nuitka.utils.Importing import getSharedLibrarySuffix"
-      control_tags:
-        - "standalone_mode_only"
+      control_tags: "standalone_mode_only"
       replacements:
         "load_first_config(['config.py'], True)": "textwrap.indent(pkgutil.get_data('cv2', 'config.py').decode('utf8'), '    ') + textwrap.indent(pkgutil.get_data('cv2', 'config-3.py').decode('utf8'), '    ')"
         # Before OpenCV 4.6
@@ -1153,8 +1143,7 @@
 - module-name: "tqdm.autonotebook"
   anti-bloat:
     - description: "remove IPython reference"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
       module_code: "from .std import tqdm, trange\n"
 
 - module-name: "tqdm"
@@ -1162,8 +1151,7 @@
     - change_function:
         "tnrange": "'(lambda *args, **kwargs: None)'"
         "tqdm_notebook": "'(lambda *args, **kwargs: None)'"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
       description: "remove IPython reference"
 
 - module-name: "pandas.util"
@@ -1491,8 +1479,7 @@
     - description: "remove IPython reference"
       replacements_plain:
         "__IPYTHON__": "raise NameError"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
 
 - module-name: "numba"
   anti-bloat:
@@ -1529,8 +1516,7 @@
         "import ipywidgets": "raise ImportError"
         # Disable lazy loading implicit imports.
         "sys.version_info < (3, 7) or TYPE_CHECKING": "True"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
 
 - module-name: "plotly.graph_objs"
   anti-bloat:
@@ -1540,8 +1526,7 @@
         "import ipywidgets": "raise ImportError"
         # Disable lazy loading implicit imports.
         "sys.version_info < (3, 7) or TYPE_CHECKING": "True"
-      control_tags:
-        - "allow_ipython"
+      control_tags: "allow_ipython"
 
 - module-name: "plotly.io"
   anti-bloat:
@@ -1567,8 +1552,7 @@
       replacements_plain:
         "import tornado": "raise ImportError"
         "from tenacity.tornadoweb import TornadoRetrying": "pass"
-      control_tags:
-        - "allow_tornado"
+      control_tags: "allow_tornado"
 
 - module-name: "zmq.backend"
   implicit-imports:
