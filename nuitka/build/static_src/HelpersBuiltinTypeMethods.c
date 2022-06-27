@@ -563,6 +563,14 @@ PyObject *DICT_POPITEM(PyObject *dict) {
 
     return result;
 }
+PyObject *DICT_POPITEM(PyObject *dict) {
+    CHECK_OBJECT(dict);
+    assert(PyDict_CheckExact(dict));
+
+    PyObject *result = CALL_METHODDESCR_WITH_SINGLE_ARG(dict_builtin_popitem, dict);
+
+    return result;
+}
 PyObject *DICT_SETDEFAULT2(PyObject *dict, PyObject *key) {
     CHECK_OBJECT(dict);
     assert(PyDict_CheckExact(dict));
