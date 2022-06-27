@@ -77,7 +77,6 @@
                                 }
                             }
                         },
-
                         "dest_path": {
                             "type": "string"
                         }
@@ -135,37 +134,63 @@
                     }
                 }
             },
-            "options-check": {
-                "type": "array",
-                "items": {
-                    "type":"object",
-                    "console": {
-                        "type": "string",
-                        "oneOf": [
-                            {
-                                "const": "yes"
-                            },
-                            {
-                                "const": "no"
-                            },
-                            {
-                                "const": "recommend"
+            "options": {
+                "type": "object",
+                "properties": {
+                    "checks": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "console": {
+                                    "type": "string",
+                                    "oneOf": [
+                                        {
+                                            "const": "yes"
+                                        },
+                                        {
+                                            "const": "no"
+                                        },
+                                        {
+                                            "const": "recommend"
+                                        }
+                                    ]
+                                },
+                                "macos_bundle": {
+                                    "type": "string",
+                                    "oneOf": [
+                                        {
+                                            "const": "yes"
+                                        },
+                                        {
+                                            "const": "no"
+                                        },
+                                        {
+                                            "const": "recommend"
+                                        }
+                                    ]
+                                },
+                                "macos_bundle_as_onefile": {
+                                    "type": "string",
+                                    "oneOf": [
+                                        {
+                                            "const": "yes"
+                                        },
+                                        {
+                                            "const": "no"
+                                        }
+                                    ]
+                                },
+                                "control_tags": {
+                                    "type": "string",
+                                    "pattern": "(macos_only|win32_only|and|not| )"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
                             }
-                        ]
-                    },
-                    "macos_bundle": {
-                        "type": "string",
-                        "oneOf": [
-                            {
-                                "const": "yes"
-                            },
-                            {
-                                "const": "no"
-                            },
-                            {
-                                "const": "recommend"
-                            }
-                        ]
+                        }
                     }
                 }
             }

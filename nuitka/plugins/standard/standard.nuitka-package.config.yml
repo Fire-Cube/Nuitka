@@ -282,7 +282,7 @@
         "import site as _site": "'_site = None'"
   implicit-imports:
     - depends:
-      - ".python.keras"
+        - ".python.keras"
 
 - module-name: "tensorflow"
   dlls:
@@ -627,7 +627,7 @@
         "main": "'(lambda: None)'"
   implicit-imports:
     - depends:
-      - "py_compile"
+        - "py_compile"
 
 - module-name: "zipfile"
   anti-bloat:
@@ -843,7 +843,7 @@
         "_test": "'(lambda: None)'"
   implicit-imports:
     - depends:
-      - "_bootlocale"
+        - "_bootlocale"
 
 - module-name: "locale"
   anti-bloat:
@@ -868,8 +868,9 @@
     - description: "remove module ability to run as a binary"
       change_function:
         "_test": "'(lambda: None)'"
-  implicit-imports:
-    standalone_macos_bundle_mode: "onefile"
+  options:
+    checks:
+      - macos_bundle_as_onefile: "yes"
 
 - module-name: "tkinter"
   anti-bloat:
@@ -927,9 +928,6 @@
         "round_trip_localpath": "'(lambda: None)'"
         "round_trip_pathlib": "'(lambda: None)'"
       description: "remove pytest testing framework"
-  options-check:
-    - 
-  
 
 - module-name: "pandas.compat._optional"
   anti-bloat:
@@ -1021,7 +1019,7 @@
 - module-name: "pandas._libs.tslibs.fields"
   implicit-imports:
     - depends:
-      - "pandas._config.localization"
+        - "pandas._config.localization"
 
 - module-name: "sphinx.util.docutils"
   anti-bloat:
@@ -1140,7 +1138,7 @@
         : "if False: (["
   implicit-imports:
     - depends:
-      - "cv2.cv2"
+        - "cv2.cv2"
 
 - module-name: "orderedmultidict"
   anti-bloat:
@@ -1218,213 +1216,221 @@
 - module-name: "lxml"
   implicit-imports:
     - depends:
-      - ".builder"
-      - ".etree"
-      - ".objectify"
-      - ".sax"
-      - "._elementpath"
+        - ".builder"
+        - ".etree"
+        - ".objectify"
+        - ".sax"
+        - "._elementpath"
 
 - module-name: "lxml.etree"
   implicit-imports:
     - depends:
-      - "._elementpath"
-      - "gzip"
+        - "._elementpath"
+        - "gzip"
 
 - module-name: "lxml.html"
   implicit-imports:
     - depends:
-      - ".html.clean"
-      - ".html.diff"
-      - ".etree"
+        - ".html.clean"
+        - ".html.diff"
+        - ".etree"
 
 - module-name: "pendulum.locales"
   implicit-imports:
     - depends:
-      - ".*.locale"
+        - ".*.locale"
 
 - module-name: "phonenumbers.data"
   implicit-imports:
     - depends:
-      - ".region_*"
+        - ".region_*"
 
 - module-name: "srsly.msgpack._packer"
   implicit-imports:
     - depends:
-      - "srsly.msgpack.util"
+        - "srsly.msgpack.util"
 
 - module-name: "anyio._core._eventloop"
   implicit-imports:
     - depends:
-      - "anyio._backends._asyncio"
+        - "anyio._backends._asyncio"
 
 - module-name: "asyncpg.protocol.protocol"
   implicit-imports:
     - depends:
-      - "asyncpg.pgproto.pgproto"
+        - "asyncpg.pgproto.pgproto"
 
 - module-name: "asyncpg.pgproto.pgproto"
   implicit-imports:
     - depends:
-      - "asyncpg.pgproto.exceptions"
+        - "asyncpg.pgproto.exceptions"
 
 - module-name: "encodings"
   implicit-imports:
     - depends:
-      - ".idna"
-      - ".base64_codec"
-      - ".hex_codec"
-      - ".rot_13"
+        - ".idna"
+        - ".base64_codec"
+        - ".hex_codec"
+        - ".rot_13"
 
 - module-name: "pathlib"
   implicit-imports:
     - depends:
-      - "ntpath"
-      - "posixpath"
+        - "ntpath"
+        - "posixpath"
 
 - module-name: "importlib.metadata"
   implicit-imports:
     - depends:
-      - "email"
+        - "email"
 
 - module-name: "urllib.request"
   implicit-imports:
     - depends:
-      - "http.client"
-      - "http.cookiejar"
+        - "http.client"
+        - "http.cookiejar"
 
 - module-name: "_asyncio"
   implicit-imports:
     - depends:
-      - "asyncio"
+        - "asyncio"
 
 - module-name: "concurrent.futures.process"
   implicit-imports:
     - depends:
-      - "multiprocessing"
-      - "multiprocessing.connection"
+        - "multiprocessing"
+        - "multiprocessing.connection"
 
 - module-name: "shelve"
   implicit-imports:
     - depends:
-      - "dbm.dumb"
+        - "dbm.dumb"
 
 - module-name: "wsgiref.simple_server"
   implicit-imports:
     - depends:
-      - "http.server"
+        - "http.server"
 
 - module-name: "shiboken6"
   implicit-imports:
     - depends:
-      - "argparse"
+        - "argparse"
 
 - module-name: "wx"
-  implicit-imports:
-    standalone_macos_bundle_mode: "yes"
-    disable_console: "recommend_on_macos"
+  options:
+    checks:
+      - description: "wx will crash in console mode during startup"
+        console: "yes"
+        control_tags: "macos_only"
+      - description: "wx requires program to be in bundle form"
+        macos_bundle: "yes"
+        control_tags: "macos_only"
 
 - module-name: "PySide2"
-  implicit-imports:
-    standalone_macos_bundle_mode: "onefile"
-    disable_console: "recommend"
+  options:
+    checks:
+      - macos_bundle_as_onefile: "yes"
+        console: "recommend"
 
 - module-name: "PySide6"
-  implicit-imports:
-    disable_console: "recommend"
+  options:
+    checks:
+      - console: "recommend"
 
 - module-name: "Tkinter"
-  implicit-imports:
-    standalone_macos_bundle_mode: "onefile"
-    disable_console: "recommend"
+  options:
+    checks:
+      - macos_bundle_as_onefile: "yes"
+        console: "recommend"
 
 - module-name: "dns.rdtypes"
   implicit-imports:
     - depends:
-      - ".IN.A"
-      - ".CH.A"
+        - ".IN.A"
+        - ".CH.A"
 
 - module-name: "tensorflow.python.compiler.tensorrt.trt_convert"
   implicit-imports:
     - depends:
-      - "tensorflow.compiler.tf2tensorrt.ops.gen_trt_ops"
-      - "tensorflow.compiler.tf2tensorrt._pywrap_py_utils"
+        - "tensorflow.compiler.tf2tensorrt.ops.gen_trt_ops"
+        - "tensorflow.compiler.tf2tensorrt._pywrap_py_utils"
 
 - module-name: "persistent.ring"
   implicit-imports:
     - depends:
-      - "_cffi_backend"
+        - "_cffi_backend"
 
 - module-name: "pydantic.typing"
   implicit-imports:
     - depends:
-      - "typing_extensions"
+        - "typing_extensions"
 
 - module-name: "falcon.app"
   implicit-imports:
     - depends:
-      - ".app_helpers"
-      - ".responders"
-      - ".routing"
+        - ".app_helpers"
+        - ".responders"
+        - ".routing"
 
 - module-name: "falcon.request"
   implicit-imports:
     - depends:
-      - ".request_helpers"
-      - ".forwarded"
-      - ".media"
+        - ".request_helpers"
+        - ".forwarded"
+        - ".media"
 
 - module-name: "falcon.media.handlers"
   implicit-imports:
     - depends:
-      - "falcon.vendor.mimeparse"
+        - "falcon.vendor.mimeparse"
 
 - module-name: "falcon.response"
   implicit-imports:
     - depends:
-      - ".response_helpers"
+        - ".response_helpers"
 
 - module-name: "uvicorn.config"
   implicit-imports:
     - depends:
-      - "websockets.legacy.server"
+        - "websockets.legacy.server"
 
 - module-name: "sklearn.metrics._dist_metrics"
   implicit-imports:
     - depends:
-      - "sklearn.utils._typedefs"
+        - "sklearn.utils._typedefs"
 
 - module-name: "sklearn.neighbors._dist_metrics"
   implicit-imports:
     - depends:
-      - "sklearn.neighbors._typedefs"
+        - "sklearn.neighbors._typedefs"
 
 - module-name: "sklearn.neighbors._ball_tree"
   implicit-imports:
     - depends:
-      - "sklearn.neighbors._partition_nodes"
+        - "sklearn.neighbors._partition_nodes"
 
 - module-name: "sklearn.linear_model._sgd_fast"
   implicit-imports:
-    depends:
-      - "sklearn.utils._weight_vector"
+    - depends:
+        - "sklearn.utils._weight_vector"
 
 - module-name: "sklearn.tree._tree"
   implicit-imports:
-    depends:
-      - "sklearn.neighbors._quad_tree"
+    - depends:
+        - "sklearn.neighbors._quad_tree"
 
 - module-name: "torch.onnx.symbolic_registry"
   implicit-imports:
-    depends:
-      - "torch.onnx.symbolic_opset7"
-      - "torch.onnx.symbolic_opset12"
-      - "torch.onnx.symbolic_opset14"
-      - "torch.onnx.symbolic_opset15"
+    - depends:
+        - "torch.onnx.symbolic_opset7"
+        - "torch.onnx.symbolic_opset12"
+        - "torch.onnx.symbolic_opset14"
+        - "torch.onnx.symbolic_opset15"
 
 - module-name: "torchvision.io.image"
   implicit-imports:
-    depends:
-      - "torchvision.image"
+    - depends:
+        - "torchvision.image"
 
 - module-name: "pyparsing"
   anti-bloat:
@@ -1546,13 +1552,13 @@
 
 - module-name: "plotly.validator_cache"
   implicit-imports:
-    depends:
-      # Disable lazy loading implicit imports.
-      - "plotly.validators.*"
-      - "plotly.validators.*.*"
-      # Maybe misplaced those here. TODO: Also make recursive dependency a thing.
-      - "plotly.graph_objs.layout.*"
-      - "plotly.graph_objs.layout.*.*"
+    - depends:
+        # Disable lazy loading implicit imports.
+        - "plotly.validators.*"
+        - "plotly.validators.*.*"
+        # Maybe misplaced those here. TODO: Also make recursive dependency a thing.
+        - "plotly.graph_objs.layout.*"
+        - "plotly.graph_objs.layout.*.*"
 
 - module-name: "tenacity"
   anti-bloat:
@@ -1566,20 +1572,20 @@
 
 - module-name: "zmq.backend"
   implicit-imports:
-    depends:
-      - "zmq.backend.cython"
+    - depends:
+        - "zmq.backend.cython"
 
 - module-name: "Xlib.XK"
   implicit-imports:
-    depends:
-      - "Xlib.keysymdef.*"
+    - depends:
+        - "Xlib.keysymdef.*"
 
 - module-name: "Xlib.support.connect"
   implicit-imports:
-    depends:
-      - "Xlib.support.unix_connect"
+    - depends:
+        - "Xlib.support.unix_connect"
 
 - module-name: "Xlib.display"
   implicit-imports:
-    depends:
-      - "Xlib.ext.*"
+    - depends:
+        - "Xlib.ext.*"
