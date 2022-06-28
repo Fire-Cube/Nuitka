@@ -245,7 +245,6 @@
   data-files:
     patterns:
       - "Lorem ipsum.txt"
-    control_tags: anti-bloat
 
 - module-name: "shapely.geos"
   dlls:

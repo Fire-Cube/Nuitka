@@ -28,8 +28,7 @@
                         }
                     },
                     "control_tags": {
-                        "type": "string",
-                        "pattern": "(([a-zA-Z]|[0-9]|_)|and|is|not| )"
+                        "type": "string"
                     },
                     "empty_dirs": {
                         "type": "array",
@@ -100,9 +99,7 @@
                             }
                         },
                         "control_tags": {
-                            "type": "string",
-                            "pattern": "(([a-zA-Z]|[0-9]|_)|and|is|not| )"
-
+                            "type": "string"
                         },
                         "replacements": {
                             "type": "object"
@@ -140,6 +137,9 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
+                                "description": {
+                                    "type": "string"
+                                },
                                 "console": {
                                     "type": "string",
                                     "oneOf": [
@@ -180,10 +180,6 @@
                                     ]
                                 },
                                 "control_tags": {
-                                    "type": "string",
-                                    "pattern": "(([a-zA-Z]|[0-9]|_)|and|is|not| )"
-                                },
-                                "description": {
                                     "type": "string"
                                 }
                             }
