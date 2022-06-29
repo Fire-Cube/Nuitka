@@ -38,7 +38,7 @@ from nuitka.utils.ModuleNames import ModuleName
 from nuitka.utils.Utils import getOS, isMacOS, isWin32Windows
 from nuitka.utils.Yaml import getYamlPackageConfiguration
 
-from nuitka.plugins.standard.OptionsNannyPlugin import NuitkaPluginOptionsNanny
+from .OptionsNannyPlugin import NuitkaPluginOptionsNanny
 
 
 class NuitkaPluginImplicitImports(NuitkaPluginBase):
@@ -106,9 +106,7 @@ class NuitkaPluginImplicitImports(NuitkaPluginBase):
         if config:
             for entry in config:
                 if entry.get("control_tags"):
-                    if not NuitkaPluginOptionsNanny()._evaluate_control_tags(
-                        entry.get("control_tags")
-                    ):
+                    if not self.evaluateControlTags(entry.get("control_tags")):
                         continue
 
                 dependencies = entry.get("depends")

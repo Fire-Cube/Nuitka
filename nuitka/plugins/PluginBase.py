@@ -857,7 +857,7 @@ except ImportError:
         # Virtual method, pylint: disable=no-self-use,unused-argument
         return ()
 
-    def evaluate_control_tags(self, control_tags):
+    def evaluateControlTags(self, control_tags):
         context = {"macos_only": isMacOS(), "win32_only": isWin32Windows()}
         versions = getSupportedPythonVersions()
         for version in versions:

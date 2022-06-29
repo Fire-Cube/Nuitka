@@ -40,7 +40,7 @@ class NuitkaPluginOptionsNanny(NuitkaPluginBase):
         if options_config.get("checks"):
             for check in options_config.get("checks"):
                 if check.get("control_tags"):
-                    if not self.evaluate_control_tags(check.get("control_tags")):
+                    if not self.evaluateControlTags(check.get("control_tags")):
                         continue
 
                 macos_bundle = options_config.get("macos_bundle")
