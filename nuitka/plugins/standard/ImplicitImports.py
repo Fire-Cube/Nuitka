@@ -38,6 +38,8 @@ from nuitka.utils.ModuleNames import ModuleName
 from nuitka.utils.Utils import getOS, isMacOS, isWin32Windows
 from nuitka.utils.Yaml import getYamlPackageConfiguration
 
+from .OptionsNannyPlugin import NuitkaPluginOptionsNanny
+
 
 class NuitkaPluginImplicitImports(NuitkaPluginBase):
     plugin_name = "implicit-imports"
@@ -102,31 +104,33 @@ class NuitkaPluginImplicitImports(NuitkaPluginBase):
 
         # Checking for config, but also allowing fall through.
         if config:
-            dependencies = config.get("depends", [])
-
-            if type(dependencies) is not list and not dependencies:
-                self.sysexit(
-                    "Error, requiring list below 'depends' entry for '%s' entry."
-                    % full_name
-                )
-
-            for dependency in dependencies:
-                if dependency.startswith("."):
-                    if (
-                        module.isUncompiledPythonPackage()
-                        or module.isCompiledPythonPackage()
+            for entry in config:
+                if entry.get("control_tags"):
+                    if not NuitkaPluginOptionsNanny()._evaluate_control_tags(
+                        entry.get("control_tags")
                     ):
-                        dependency = full_name.getChildNamed(dependency[1:]).asString()
-                    else:
-                        dependency = full_name.getSiblingNamed(
-                            dependency[1:]
-                        ).asString()
+                        continue
 
-                if "*" in dependency or "?" in dependency:
-                    for resolved in self._resolveModulePattern(dependency):
-                        yield resolved
-                else:
-                    yield dependency
+                dependencies = entry.get("depends")
+                for dependency in dependencies:
+                    if dependency.startswith("."):
+                        if (
+                            module.isUncompiledPythonPackage()
+                            or module.isCompiledPythonPackage()
+                        ):
+                            dependency = full_name.getChildNamed(
+                                dependency[1:]
+                            ).asString()
+                        else:
+                            dependency = full_name.getSiblingNamed(
+                                dependency[1:]
+                            ).asString()
+
+                    if "*" in dependency or "?" in dependency:
+                        for resolved in self._resolveModulePattern(dependency):
+                            yield resolved
+                    else:
+                        yield dependency
 
         if full_name == "sip" and python_version < 0x300:
             yield "enum"

@@ -123,6 +123,9 @@
                             "type": "array",
                             "items": {
                                 "type": "string"
+                            },
+                            "control_tags": {
+                                "type": "string"
                             }
                         }
                     }
@@ -130,6 +133,7 @@
             },
             "options": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "checks": {
                         "type": "array",
