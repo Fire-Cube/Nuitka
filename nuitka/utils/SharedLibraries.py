@@ -254,12 +254,12 @@ _otool_output_cache = {}
 def _getOToolCommandOutput(otool_option, filename):
     filename = os.path.abspath(filename)
 
-    if otool_option == "-L":
-        cache_key = filename, os.environ.get("DYLD_LIBRARY_PATH")
-    else:
-        cache_key = filename
-
     command = ("otool", otool_option, filename)
+
+    if otool_option == "-L":
+        cache_key = command, os.environ.get("DYLD_LIBRARY_PATH")
+    else:
+        cache_key = command
 
     if cache_key not in _otool_output_cache:
         _otool_output_cache[cache_key] = executeToolChecked(

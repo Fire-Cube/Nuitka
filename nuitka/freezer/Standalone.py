@@ -1299,38 +1299,37 @@ def _removeDuplicateDlls(used_dlls):
             dll_version2 = getDLLVersion(dll_filename2)
 
             if dll_version1 is None and dll_version2 is None:
-                solved = False
+                pass
             elif dll_version1 is None and dll_version2 is not None:
                 del used_dlls[dll_filename1]
                 removed_dlls.add(dll_filename1)
 
-                solved = True
+                continue
             elif dll_version1 is not None and dll_version2 is None:
                 del used_dlls[dll_filename2]
                 removed_dlls.add(dll_filename2)
 
-                solved = True
+                continue
             elif dll_version2 < dll_version1:
                 del used_dlls[dll_filename2]
                 removed_dlls.add(dll_filename2)
 
-                solved = True
+                continue
             elif dll_version1 < dll_version2:
                 del used_dlls[dll_filename1]
                 removed_dlls.add(dll_filename1)
 
-                solved = True
-
-            if solved:
-                if dll_name not in warned_about and dll_name not in ms_runtime_dlls:
-                    warned_about.add(dll_name)
-
-                    inclusion_logger.warning(
-                        "Conflicting DLLs for '%s' in your installation, newest file version used, hoping for the best."
-                        % dll_name
-                    )
-
                 continue
+
+            if dll_name not in warned_about and dll_name not in ms_runtime_dlls:
+                warned_about.add(dll_name)
+
+                inclusion_logger.warning(
+                    "Conflicting DLLs for '%s' in your installation, newest file version used, hoping for the best."
+                    % dll_name
+                )
+
+            continue
 
             # So we have conflicting DLLs, in which case we do report the fact.
             inclusion_logger.warning(
