@@ -40,7 +40,7 @@ class NuitkaPluginOptionsNanny(NuitkaPluginBase):
         if options_config.get("checks"):
             for check in options_config.get("checks"):
                 if check.get("control_tags"):
-                    if not self._evaluate_control_tags(check.get("control_tags")):
+                    if not self.evaluate_control_tags(check.get("control_tags")):
                         continue
 
                 macos_bundle = options_config.get("macos_bundle")
@@ -114,29 +114,3 @@ class NuitkaPluginOptionsNanny(NuitkaPluginBase):
                             "Note, when using '%s', you have to use '--disable-console' option."
                             % full_name
                         )
-
-    def _evaluate_control_tags(self, tags):
-        global macos_only, win32_only
-        macos_only = isMacOS()
-        win32_only = isWin32Windows()
-
-        versions = getSupportedPythonVersions()
-        for version in versions:
-            big, major = version.split(".")
-            same_or_higher_version = (
-                int(big) + 1 >= sys.version_info.major
-                and int(major) + 1 >= sys.version_info.minor
-            )
-            lower_version = (
-                int(big) > sys.version_info.major or int(major) > sys.version_info.minor
-            )
-            exec(
-                "python" + big + major + "_or_higher = " + str(same_or_higher_version),
-                globals(),
-            )
-            exec("before_python" + big + major + " = " + str(lower_version), globals())
-
-        return eval(tags, globals())
-
-
-NuitkaPluginOptionsNanny()._evaluate_control_tags("win32_only and python39_or_higher")
