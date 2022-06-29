@@ -38,8 +38,6 @@ from nuitka.utils.ModuleNames import ModuleName
 from nuitka.utils.Utils import getOS, isMacOS, isWin32Windows
 from nuitka.utils.Yaml import getYamlPackageConfiguration
 
-from .OptionsNannyPlugin import NuitkaPluginOptionsNanny
-
 
 class NuitkaPluginImplicitImports(NuitkaPluginBase):
     plugin_name = "implicit-imports"

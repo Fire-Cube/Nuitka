@@ -16,7 +16,6 @@
 #     limitations under the License.
 #
 
-import sys
 
 from nuitka.Options import (
     isOnefileMode,
@@ -26,10 +25,7 @@ from nuitka.Options import (
     shallDisableConsoleWindow,
 )
 from nuitka.plugins.PluginBase import NuitkaPluginBase
-from nuitka.PythonVersions import getSupportedPythonVersions, python_version
-from nuitka.utils.ModuleNames import ModuleName
-from nuitka.utils.Utils import getOS, isMacOS, isWin32Windows
-from nuitka.utils.Yaml import getYamlPackageConfiguration
+from nuitka.utils.Utils import isMacOS
 
 
 class NuitkaPluginOptionsNanny(NuitkaPluginBase):
