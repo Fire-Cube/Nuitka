@@ -115,7 +115,7 @@ class NuitkaPluginOptionsNanny(NuitkaPluginBase):
                             % full_name
                         )
 
-    def _evaluate_control_tags(self, tags: str):
+    def _evaluate_control_tags(self, tags):
         global macos_only, win32_only
         macos_only = isMacOS()
         win32_only = isWin32Windows()
