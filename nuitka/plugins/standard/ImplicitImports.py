@@ -25,13 +25,6 @@ to add to this and submit patches to make it more complete.
 import fnmatch
 
 from nuitka.__past__ import iter_modules
-from nuitka.Options import (
-    isOnefileMode,
-    isStandaloneMode,
-    mayDisableConsoleWindow,
-    shallCreateAppBundle,
-    shallDisableConsoleWindow,
-)
 from nuitka.plugins.PluginBase import NuitkaPluginBase
 from nuitka.PythonVersions import python_version
 from nuitka.utils.ModuleNames import ModuleName
