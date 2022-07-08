@@ -1638,3 +1638,17 @@
     - description: "remove dipy and numpy testing framework"
       replacements_plain:
         "from .testing import setup_test": ""
+
+- module-name: "mmcv.utils"
+  anti-bloat:
+    - description: "remove mmcv testing framework"
+      replacements_plain:
+        "from .testing import": "if False: from .testing import"
+
+- module-name: "tifffile.tifffile"
+  anti-bloat:
+    - description: "remove module ability to run as a binary"
+      change_function:
+        "main": "un-callable"
+      # Using tags, to still make it possible to compile in case of main module.
+      when: "not main_module"
