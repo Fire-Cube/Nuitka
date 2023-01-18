@@ -575,6 +575,38 @@ static int waitpid_retried(pid_t pid, int *status, bool async) {
     return res;
 }
 
+#ifdef __APPLE__
+int sigtimedwait(const sigset_t *set, siginfo_t *info, const struct timespec *timeout) {
+    struct timespec elapsed = {0, 0}, rem;
+    sigset_t pending;
+    long ns = 200000000L; // 0.2s
+
+    do {
+        sigpending(&pending);
+
+        for (int signo = 1; signo < __DARWIN_NSIG; signo++) {
+            if (sigismember(set, signo) && sigismember(&pending, signo)) {
+                if (info) {
+                    memset(info, 0, sizeof *info);
+                    info->si_signo = signo;
+                }
+
+                return signo;
+            }
+        }
+
+        nanosleep(&(struct timespec){0, ns}, &rem);
+        elapsed.tv_sec += (elapsed.tv_nsec + ns) / 1000000000L;
+        elapsed.tv_nsec = (elapsed.tv_nsec + ns) % 1000000000L;
+    } while (elapsed.tv_sec < timeout->tv_sec ||
+             (elapsed.tv_sec == timeout->tv_sec && elapsed.tv_nsec < timeout->tv_nsec));
+
+    errno = EAGAIN;
+
+    return -1;
+}
+#endif
+
 static int waitpid_timeout(pid_t pid) {
     // Check if already exited.
     if (waitpid(pid, NULL, WNOHANG) == -1) {
