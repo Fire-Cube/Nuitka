@@ -24,6 +24,7 @@ a distribution folder.
 
 """
 
+import cProfile
 import os
 import sys
 
@@ -937,11 +938,18 @@ def main():
     addIncludedDataFilesFromFileOptions()
     addIncludedDataFilesFromPackageOptions()
 
+    print("profiling")
+    pr = cProfile.Profile()
+    pr.enable()
     # Turn that source code into a node tree structure.
     try:
         main_module = _createMainModule()
     except (SyntaxError, IndentationError) as e:
         handleSyntaxError(e)
+
+    pr.disable()
+    print("profiling finished")
+    pr.dump_stats("stats")
 
     addIncludedDataFilesFromPlugins()
 
