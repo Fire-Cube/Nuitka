@@ -357,12 +357,17 @@ class TraceCollectionBase(object):
         self.owner = owner
         self.parent = parent
         self.name = name
+        self.used_modules = set()
 
         # Currently active values in the tracing.
         self.variable_actives = {}
 
     def __repr__(self):
         return "<%s for %s at 0x%x>" % (self.__class__.__name__, self.name, id(self))
+
+    def addModuleUsageAttempts(self, module_usage_attempts):
+        for module_usage_attempt in module_usage_attempts:
+            self.used_modules.add(module_usage_attempt)
 
     def getOwner(self):
         return self.owner

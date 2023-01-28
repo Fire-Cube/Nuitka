@@ -1107,6 +1107,7 @@ class ExpressionBuiltinImport(ChildrenExpressionBuiltinImportMixin, ExpressionBa
                         imported_module_name in hard_modules_non_stdlib
                         or isStandardLibraryPath(module_filename)
                     ):
+                        trace_collection.addModuleUsageAttempts(imported_module_name)
                         from_list_truth = (
                             self.subnode_fromlist is not None
                             and self.subnode_fromlist.getTruthValue()
