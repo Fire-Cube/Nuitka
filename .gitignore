@@ -71,3 +71,4 @@ doxygen-*
 .vscode/tags
 .vscode/.ropeproject
 Nuitka-*
+stats_pyautogui.converted
