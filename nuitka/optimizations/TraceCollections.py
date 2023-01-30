@@ -357,17 +357,12 @@ class TraceCollectionBase(object):
         self.owner = owner
         self.parent = parent
         self.name = name
-        self.used_modules = set()
 
         # Currently active values in the tracing.
         self.variable_actives = {}
 
     def __repr__(self):
         return "<%s for %s at 0x%x>" % (self.__class__.__name__, self.name, id(self))
-
-    def addModuleUsageAttempts(self, module_usage_attempts):
-        for module_usage_attempt in module_usage_attempts:
-            self.used_modules.add(module_usage_attempt)
 
     def getOwner(self):
         return self.owner
@@ -937,6 +932,9 @@ class TraceCollectionBase(object):
 
         return new_node, change_tags, message
 
+    def addModuleUsageAttempts(self, module_usage_attemts):
+        self.parent.addModuleUsageAttempts(module_usage_attemts)
+
     def addOutlineFunction(self, outline):
         self.parent.addOutlineFunction(outline)
 
@@ -1090,6 +1088,8 @@ class TraceCollectionModule(CollectionStartPointMixin, TraceCollectionBase):
         "very_trusted_module_variables",
     )
 
+    used_modules = set()
+
     def __init__(self, module, very_trusted_module_variables):
         assert module.isCompiledPythonModule(), module
 
@@ -1100,6 +1100,12 @@ class TraceCollectionModule(CollectionStartPointMixin, TraceCollectionBase):
         )
 
         self.very_trusted_module_variables = very_trusted_module_variables
+
+    def addModuleUsageAttempts(self, module_usage_attempts):
+        self.used_modules.update(module_usage_attempts)
+
+    def getUsedModules(self):
+        return self.used_modules
 
     def getVeryTrustedModuleVariables(self):
         return self.very_trusted_module_variables

@@ -422,7 +422,7 @@ def _addParentPackageUsages(using_module, module_name, signal_change, source_ref
 
 
 def considerUsedModules(module, signal_change):
-    for used_module in module.getUsedModules():
+    for used_module in module.trace_collection.getUsedModules():
         if used_module.finding == "not-found":
             Importing.warnAbout(
                 importing=module,
