@@ -277,6 +277,7 @@ hard_modules_trust = {
     "site": {},
     "ctypes.wintypes": {},
     "ctypes.macholib": {},
+    "ctypes.c_int": trust_node,
 }
 
 
