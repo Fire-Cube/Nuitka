@@ -22,7 +22,7 @@ it automatically creates a reference node and a base class for the call node
 to use.
 """
 
-from nuitka.nodes.shapes.BuiltinTypeShapes import (
+from nuitka.nodes.shapes.BuiltinTypeShapes import (  # tshape_int
     tshape_bytes,
     tshape_dict,
     tshape_str,
@@ -144,3 +144,12 @@ ctypes_cdll_before_38_spec = BuiltinParameterSpec(
     ),
     default_count=4,
 )
+
+# ctypes_c_int = BuiltinParameterSpec(
+#     "ctypes.c_int",
+#     (
+#         "value",
+#     ),
+#     default_count=1,
+#     type_shape=tshape_int
+# )
