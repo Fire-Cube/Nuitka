@@ -31,6 +31,7 @@ from nuitka.ModuleRegistry import getModuleByName, getOwnerFromCodeName
 from nuitka.optimizations.TraceCollections import TraceCollectionModule
 from nuitka.PythonVersions import python_version
 from nuitka.SourceCodeReferences import fromFilename
+from nuitka.tree.Operations import DetectUsedModules, visitTree
 from nuitka.tree.SourceHandling import readSourceCodeFromFilename
 from nuitka.utils.CStrings import encodePythonIdentifierToC
 from nuitka.utils.FileOperations import getFileContentByLine
@@ -474,7 +475,12 @@ class CompiledPythonModule(
         self.used_modules = None
 
     def getUsedModules(self):
-        return self.trace_collection.getModuleUsageAttempts()
+        if self.used_modules is None:
+            visitor = DetectUsedModules()
+            visitTree(tree=self, visitor=visitor)
+            self.used_modules = visitor.getUsedModules()
+
+        return self.used_modules
 
     def addUsedFunction(self, function_body):
         assert function_body in self.subnode_functions, function_body
