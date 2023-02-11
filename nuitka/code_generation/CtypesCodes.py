@@ -42,3 +42,7 @@ def generateCtypesCdllCallCode(to_name, expression, emit, context):
         emit=emit,
         context=context,
     )
+
+
+def generateCtypesCIntCallCode(to_name, expression, emit, context):
+    pass
